@@ -1,5 +1,4 @@
 -- Drop user first if they exist
-DROP USER if exists 'data_A'@'%' ;
 DROP USER if exists 'dataA'@'%' ;
 
 -- Now create user with prop privileges
