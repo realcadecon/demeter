@@ -34,12 +34,12 @@ public class DemeterApplication {
 		userDAO.saveUser(tempUser);
 		System.out.println("Creating a new meal");
 		Meal tempMeal = new Meal("TestLunch", "jdoe");
-		int id = mealDAO.saveMeal(tempMeal).getId();
+		int meal_id = mealDAO.saveMeal(tempMeal).getId();
 		System.out.println("Creating new foods to add to meal");
-		Food tempFood = new Food(, "Rice", "jdoe", 150, "g", 100);
+		Food tempFood = new Food(meal_id, "Rice", "jdoe", 150, "g", 200);
 		foodDAO.saveFood(tempFood);
-
-
+		Food tempFood2 = new Food(meal_id, "Ground Beef", "jdoe", 150, "oz", 6);
+		foodDAO.saveFood(tempFood2);
 	}
 
 	private void deleteMostRecent(UserDAO userDAO, MealDAO mealDAO, FoodDAO foodDAO) {
