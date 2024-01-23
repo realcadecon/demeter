@@ -12,8 +12,8 @@ public class Food {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "meal_id", referencedColumnName = "id")
-    private int meal_id;
+    @JoinColumn(name = "meal_id")
+    private Meal meal;
 
     @Column(name = "name")
     private String name;
@@ -30,12 +30,12 @@ public class Food {
     @Column(name = "amount")
     private int amount;
 
-    public int getMeal_id() {
-        return meal_id;
+    public Meal getMeal() {
+        return meal;
     }
 
-    public void setMeal_id(int meal_id) {
-        this.meal_id = meal_id;
+    public void setMeal(Meal meal) {
+        this.meal = meal;
     }
 
     public String getName() {
@@ -84,8 +84,8 @@ public class Food {
 
     public Food () {}
 
-    public Food(int meal_id, String name, String author, int calories, String serving_size, int amount) {
-        this.meal_id = meal_id;
+    public Food(Meal meal, String name, String author, int calories, String serving_size, int amount) {
+        this.meal = meal;
         this.name = name;
         this.author = author;
         this.calories = calories;
@@ -97,12 +97,12 @@ public class Food {
     public String toString() {
         return "Food{" +
                 "id=" + id +
-                ", meal_id=" + meal_id +
+                ", meal=" + meal +
                 ", name='" + name + '\'' +
                 ", author='" + author + '\'' +
                 ", calories=" + calories +
                 ", serving_size='" + serving_size + '\'' +
-                ", amount='" + amount + '\'' +
+                ", amount=" + amount +
                 '}';
     }
 }

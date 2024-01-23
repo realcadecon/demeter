@@ -5,9 +5,11 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class MealDAOImpl implements MealDAO {
 
     private EntityManager entityManager;
@@ -29,9 +31,8 @@ public class MealDAOImpl implements MealDAO {
 
     @Override
     @Transactional
-    public Meal saveMeal(Meal meal) {
+    public void saveMeal(Meal meal) {
         entityManager.persist(meal);
-        return meal;
     }
 
     @Override

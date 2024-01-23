@@ -19,9 +19,9 @@ CREATE TABLE `user` (
 CREATE TABLE `meal` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `author` varchar(45) DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`author`) REFERENCES `user`(`username`)
+  FOREIGN KEY (`user_id`) REFERENCES `user`(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 

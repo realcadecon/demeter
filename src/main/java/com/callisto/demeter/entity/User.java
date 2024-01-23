@@ -2,6 +2,8 @@ package com.callisto.demeter.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="user")
 public class User {
@@ -22,6 +24,9 @@ public class User {
 
     @Column(name = "email")
     private String email;
+
+    @OneToMany(mappedBy = "user")
+    private List<Meal> meals;
 
     public User() {}
 
@@ -66,6 +71,11 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    public void add(Meal meal) {
+        meals.add(meal);
+        meal.setUser(this);
     }
 
     @Override

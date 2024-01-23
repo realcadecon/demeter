@@ -1,5 +1,6 @@
 package com.callisto.demeter.dao;
 
+import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
 import com.callisto.demeter.entity.User;
 
@@ -10,7 +11,8 @@ public interface MealDAO {
 
     Meal findMealByID(int id);
 
-    Meal saveMeal(Meal meal);
+    void saveMeal(Meal meal);
 
     void deleteMealByID(int id);
+
 }

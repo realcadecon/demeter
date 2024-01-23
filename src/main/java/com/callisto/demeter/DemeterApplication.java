@@ -24,22 +24,22 @@ public class DemeterApplication {
 	public CommandLineRunner commandLineRunner(UserDAO userDAO, MealDAO mealDAO, FoodDAO foodDAO) {
 		return runner -> {
 			System.out.println("Hello World");
-			crudUserMealFood(userDAO, mealDAO, foodDAO);
+			crudUserMealFood(userDAO);
 		};
 	}
 
-	private void crudUserMealFood(UserDAO userDAO, MealDAO mealDAO, FoodDAO foodDAO) {
+	private void crudUserMealFood(UserDAO userDAO) {
 		System.out.println("Creating a new user");
 		User tempUser = new User("jdoe","testPass","John","jdoe@gmail.com");
-		userDAO.saveUser(tempUser);
 		System.out.println("Creating a new meal");
-		Meal tempMeal = new Meal("TestLunch", "jdoe");
-		int meal_id = mealDAO.saveMeal(tempMeal).getId();
+		Meal tempMeal = new Meal("TestLunch", tempUser);
+		tempUser.add(tempMeal);
 		System.out.println("Creating new foods to add to meal");
-		Food tempFood = new Food(meal_id, "Rice", "jdoe", 150, "g", 200);
-		foodDAO.saveFood(tempFood);
-		Food tempFood2 = new Food(meal_id, "Ground Beef", "jdoe", 150, "oz", 6);
-		foodDAO.saveFood(tempFood2);
+		Food tempFood = new Food(tempMeal, "Rice", "jdoe", 150, "g", 200);
+		Food tempFood2 = new Food(tempMeal, "Ground Beef", "jdoe", 150, "oz", 6);
+		tempMeal.add(tempFood);
+		tempMeal.add(tempFood2);
+		userDAO.saveUser(tempUser);
 	}
 
 	private void deleteMostRecent(UserDAO userDAO, MealDAO mealDAO, FoodDAO foodDAO) {
@@ -60,9 +60,10 @@ public class DemeterApplication {
 		userDAO.deleteUserByID(id);
 	}
 
-	private void crudFood(FoodDAO foodDAO) {
+	private void crudFood(FoodDAO foodDAO, MealDAO mealDAO) {
 		System.out.println("Creating a new food");
-		Food tempFood = new Food(1, "Rice", "jdoe", 150, "g", 100);
+		Meal meal = mealDAO.findMealByID(1);
+		Food tempFood = new Food(meal, "Rice", "jdoe", 150, "g", 100);
 		foodDAO.saveFood(tempFood);
 		List<Food> foods = foodDAO.findAll();
 		for(Food food : foods) {
