@@ -2,6 +2,7 @@ package com.callisto.demeter.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,11 +17,13 @@ public class Meal {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
+                        CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "meal")
+    @OneToMany(mappedBy = "meal",
+            cascade = CascadeType.ALL)
     private List<Food> foods;
 
     public String getName() {
@@ -66,13 +69,10 @@ public class Meal {
         this.user = user;
     }
 
-    public Meal(String name, User user, List<Food> foods) {
-        this.name = name;
-        this.user = user;
-        this.foods = foods;
-    }
-
     public void add(Food food) {
+        if(foods == null) {
+            foods = new ArrayList<>();
+        }
         foods.add(food);
         food.setMeal(this);
     }

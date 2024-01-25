@@ -2,17 +2,19 @@ package com.callisto.demeter.dao;
 
 import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
-import com.callisto.demeter.entity.User;
+import com.callisto.demeter.entity.Meal;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 public interface MealDAO {
-    List<Meal> findAll();
 
-    Meal findMealByID(int id);
-
+    //Basic CRUD
     void saveMeal(Meal meal);
-
-    void deleteMealByID(int id);
+    void saveMeals(List<Meal> meals);
+    Meal findMealById(int id);
+    List<Meal> findMealsById(List<Integer> ids);
+    void updateMeal(Meal meal);
+    void deleteMealById(int id);
 
 }

@@ -11,10 +11,6 @@ public class Food {
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "meal_id")
-    private Meal meal;
-
     @Column(name = "name")
     private String name;
 
@@ -29,6 +25,10 @@ public class Food {
 
     @Column(name = "amount")
     private int amount;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "meal_id")
+    private Meal meal;
 
     public Meal getMeal() {
         return meal;
@@ -82,10 +82,13 @@ public class Food {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Food () {}
 
-    public Food(Meal meal, String name, String author, int calories, String serving_size, int amount) {
-        this.meal = meal;
+    public Food(String name, String author, int calories, String serving_size, int amount) {
         this.name = name;
         this.author = author;
         this.calories = calories;
