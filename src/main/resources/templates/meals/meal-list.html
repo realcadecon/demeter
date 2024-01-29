@@ -8,12 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <h3 class="mt-5">User's Meals</h3>
+        <h3 class="mt-5"><span th:text="${User.firstName}"></span>'s Meals</h3>
         <hr>
-        <!-- <a th:href="@{/employees/showFormForAdd}"
+        <a th:href="@{meals/createMealForm}"
            class="btn btn-primary btn-sm mb-3">
-            Go Back To Users
-        </a> -->
+            Add Meal
+        </a>
         <table class="table table-bordered table-striped">
             <thead class="table-dark">
             <tr>
@@ -27,8 +27,8 @@
                 <td th:text="${meal.name}"></td>
                 <td th:text="${meal.user.firstName}"></td>
                 <td>
-                    <form method="post" th:action="@{/meals/showFormForUpdate}" th:object="${mealList[__${stat.index}__]}">
-                        <input type="hidden" th:name="id" th:value="${mealList[__${stat.index}__].id}">
+                    <form method="post" th:action="@{/meals/updateMealForm}" th:object="${mealList[__${stat.index}__]}">
+                        <input type="hidden" th:name="mealId" th:value="${mealList[__${stat.index}__].id}">
                         <input type="submit" value="Update" class="btn btn-info btn-sm">
                     </form>
                     <form method="post" th:action="@{/meals/delete}" th:object="${mealList[__${stat.index}__]}">

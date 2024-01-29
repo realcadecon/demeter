@@ -1,19 +1,18 @@
 package com.callisto.demeter;
 
-import com.callisto.demeter.dao.FoodDAO;
-import com.callisto.demeter.dao.MealDAO;
-import com.callisto.demeter.dao.UserDAO;
 import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
 import com.callisto.demeter.entity.User;
+import com.callisto.demeter.service.UserMealFoodService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 import java.util.List;
-import java.util.Optional;
 
+@Profile("!test")
 @SpringBootApplication
 public class DemeterApplication {
 
@@ -21,45 +20,70 @@ public class DemeterApplication {
 		SpringApplication.run(DemeterApplication.class, args);
 	}
 
-//	@Bean
-//	public CommandLineRunner commandLineRunner(UserDAO userDAO, MealDAO mealDAO, FoodDAO foodDAO) {
-//		return runner -> {
-//			//crudUserMealFood(userDAO);
-//
-//			updateMealInUser(userDAO);
-//		};
-//	}
+	@Bean
+	public CommandLineRunner commandLineRunner(UserMealFoodService umfService) {
+		return runner -> {
+			//findJustUser(umfService);
 
-//	private void updateMealInUser(UserDAO userDAO) {
-//		int id = 1;
-//		Optional<User> resultUser = userDAO.findById(id);
-//		User user = null;
-//		if(resultUser.isPresent()) {
-//			user = resultUser.get();
-//			Meal meal = new Meal("Lunch-2", user);
-//			user.add(meal);
-//			userDAO.save(user);
-//			System.out.println("Added Meal to User with Id = " + id);
-//		} else {
-//			System.out.println("Couldn't find User with Id = " + id);
-//		}
-//	}
-//
-//	private void crudUserMealFood(UserDAO userDAO) {
-//		System.out.println("Creating a new user");
-//		User tempUser = new User("jdoe","testPass","John","jdoe@gmail.com");
-//		System.out.println("Creating a new meal");
-//		Meal tempMeal = new Meal("TestLunch", tempUser);
-//		tempUser.add(tempMeal);
-//		System.out.println("Creating new foods to add to meal");
-//		Food tempFood = new Food("Rice", "jdoe", 150, "g", 200);
-//		Food tempFood2 = new Food("Ground Beef", "jdoe", 150, "oz", 6);
-//		tempFood.setMeal(tempMeal);
-//		tempFood2.setMeal(tempMeal);
-//		tempMeal.add(tempFood);
-//		tempMeal.add(tempFood2);
-//		userDAO.save(tempUser);
-//	}
+			//findBothMealAndFoods(umfService);
+		};
+	}
+
+	private void findOnlyFoods(UserMealFoodService umfService) {
+		List<Food> foodList = umfService.findOnlyFoodsByMealId(9);
+		foodList.forEach(food -> {
+			System.out.println("Name = " + food.getName()
+					+ "\nCalories = " + food.getCalories()
+					+ "\nId = " + food.getId());
+		});
+	}
+
+	private void findBothMealAndFoods(UserMealFoodService umfService) {
+		Meal meal = umfService.findMealWithFoodsById(1);
+		List<Food> foodList = meal.getFoods();
+		System.out.print(meal);
+		foodList.forEach(System.out::println);
+	}
+
+
+	private void findJustUser(UserMealFoodService umfService) {
+		int id = 1;
+		System.out.println("Looking for User with ID = " + id);
+		try {
+			User user = umfService.findUserById(id);
+			System.out.println("Found User :: " + user);
+
+		} catch (Exception e) {
+			System.out.println("Exception Thrown: could not find user with ID = " + id);
+		}
+	}
+	private void findJustFood(UserMealFoodService umfService) {
+		int id = 1;
+		System.out.println("Looking for User with ID = " + id);
+		try {
+			User user = umfService.findUserById(id);
+			System.out.println("Found User :: " + user);
+
+		} catch (Exception e) {
+			System.out.println("Exception Thrown: could not find user with ID = " + id);
+		}
+	}
+
+	private void crudUserMealFood(UserMealFoodService umfService) {
+		System.out.println("Creating a new user");
+		User tempUser = new User("sydRut","sydRut","Sydney","srut@gmail.com");
+		System.out.println("Creating a new meal");
+		Meal tempMeal = new Meal("TestBreakfast");
+		tempUser.add(tempMeal);
+		System.out.println("Creating new foods to add to meal");
+		Food tempFood = new Food("Eggs", "sydRut", 100, "g", 50);
+		Food tempFood2 = new Food("Ground Beef", "sydRut", 150, "oz", 4);
+		tempFood.setMeal(tempMeal);
+		tempFood2.setMeal(tempMeal);
+		tempMeal.add(tempFood);
+		tempMeal.add(tempFood2);
+		umfService.saveUser(tempUser);
+	}
 
 
 }

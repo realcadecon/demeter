@@ -1,8 +1,9 @@
 package com.callisto.demeter.controller;
 
-import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
-import com.callisto.demeter.service.MealAndFoodService;
+import com.callisto.demeter.entity.User;
+import com.callisto.demeter.entity.Food;
+import com.callisto.demeter.service.UserMealFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +15,19 @@ import java.util.List;
 @RequestMapping("/meals")
 public class MealController {
 
-    private MealAndFoodService mfService;
+    private final UserMealFoodService umfService;
 
     @Autowired
-    public MealController(MealAndFoodService mealAndFoodService) {
-        mfService = mealAndFoodService;
+    public MealController(UserMealFoodService userMealFoodService) {
+        umfService = userMealFoodService;
     }
 
-    @GetMapping("/list")
+    @GetMapping
     public String showAllMeals(@RequestParam("id") int id, Model model) {
-        List<Meal> mealList = mfService.findAllMealsForUser(id);
+        User user = umfService.findUserWithMealsById(id);
+        List<Meal> mealList = user.getMeals();
+        System.out.println(user);
+        model.addAttribute("User", user);
         if(mealList == null) {
             model.addAttribute("error", "Couldn't find any meals for this user...");
         } else {
@@ -32,23 +36,38 @@ public class MealController {
         return "meals/meal-list";
     }
 
-    @GetMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("foodId") int foodId, @RequestParam("mealId") int mealId, Model model) {
-        Meal meal = mfService.findMealById(mealId);
-        Food foodToUpdate = null;
-        if(meal != null) {
-            foodToUpdate = mfService.findFoodById(foodId);
-            model.addAttribute("updatedFood");
-        }
+    @PostMapping("/updateMealForm")
+    public String showUpdateMealForm(@RequestParam("mealId") int mealId, Model model) {
+        Meal meal = umfService.findMealWithFoodsById(mealId);
+        model.addAttribute("meal", meal);
         return "meals/food-update-form";
     }
 
+    @PostMapping("/update")
+    public String updateMeal(@ModelAttribute Meal meal) {
+        int uid = meal.getUser().getId();
+        return "redirect:/meals?id="+uid;
+    }
+
+    @PostMapping("/createMealForm")
+    public String showCreateMealForm(@RequestParam("mealId") int mealId, Model model) {
+//        //Food food = umfService.findFoodById(foodId);
+//        model.addAttribute("foodToUpdate", food);
+        return "meals/food-create-form";
+    }
+
+    @PostMapping("/create")
+    public String createMeal(@ModelAttribute Meal meal) {
+        int uid = meal.getUser().getId();
+        return "redirect:/meals?id="+uid;
+    }
+
     @PostMapping("/delete")
-    public String deleteMeal(@ModelAttribute Meal mealToDelete) {
-        int meal_id = mealToDelete.getId();
-        int user_id = mfService.getAuthorOfMeal(meal_id);
-        mfService.deleteMeal(meal_id);
-        return "redirect:/meals/list?id="+user_id;
+    public String deleteMeal(@ModelAttribute Meal partialMeal) {
+        Meal mealToDelete = umfService.findMealById(partialMeal.getId());
+        int uid = mealToDelete.getUser().getId();
+        umfService.deleteMeal(mealToDelete);
+        return "redirect:/meals?id="+uid;
     }
 
 }

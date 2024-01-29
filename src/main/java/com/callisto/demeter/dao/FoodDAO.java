@@ -3,17 +3,16 @@ package com.callisto.demeter.dao;
 import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Food;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface FoodDAO {
+public interface FoodDAO extends JpaRepository<Food, Integer> {
 
-    //Basic CRUD
-    void saveFood(Food food);
-    void saveFoods(List<Food> foods);
-    Food findFoodById(int id);
-    List<Food> findFoodsById(List<Integer> ids);
-    void updateFood(Food user);
-    void deleteFoodById(int id);
+    @Query("select f FROM Food f where f.meal.id = ?1")
+    List<Food> findFoodsByMealIdLazy(int mealId);
+
+    @Query("select f FROM Food f where f.meal.id in (?1)")
+    List<Food> findFoodsById(List<Integer> mealIDs);
 
 }

@@ -6,7 +6,6 @@ import com.callisto.demeter.dao.UserDAO;
 import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
 import com.callisto.demeter.entity.User;
-import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MealAndFoodServiceImpl implements MealAndFoodService {
+public class UserMealFoodServiceImpl implements UserMealFoodService {
 
     private FoodDAO foodDAO;
     private MealDAO mealDAO;
@@ -23,7 +22,7 @@ public class MealAndFoodServiceImpl implements MealAndFoodService {
 
 
     @Autowired
-    public MealAndFoodServiceImpl(FoodDAO foodDAO, MealDAO mealDAO, UserDAO userDAO) {
+    public UserMealFoodServiceImpl(FoodDAO foodDAO, MealDAO mealDAO, UserDAO userDAO) {
         this.foodDAO = foodDAO;
         this.mealDAO = mealDAO;
         this.userDAO = userDAO;
@@ -31,7 +30,7 @@ public class MealAndFoodServiceImpl implements MealAndFoodService {
 
     @Override
     public List<User> findAllUsers() {
-        return null;
+        return userDAO.findAll();
     }
 
     @Override
@@ -45,157 +44,100 @@ public class MealAndFoodServiceImpl implements MealAndFoodService {
 
     @Override
     public Meal findMealWithFoodsById(int mealId) {
-        return mealDAO.findMealAndFoodsByIdJoinFetch(mealId);
+        return mealDAO.findMealWithFoods(mealId);
     }
 
     @Override
+    @Transactional
     public List<Food> findOnlyFoodsByMealId(int mealId) {
-        return null;
+        return foodDAO.findFoodsByMealIdLazy(mealId);
     }
 
     @Override
     public Food findFoodById(int id) {
-        return null;
+        Optional<Food> foodResult = foodDAO.findById(id);
+        Food food = null;
+        if(foodResult.isPresent()) {
+            food = foodResult.get();
+        }
+        return food;
     }
 
     @Override
     public Meal findMealById(int mealId) {
+        Optional<Meal> mealResult = mealDAO.findById(mealId);
+        if(mealResult.isPresent()) {
+            return mealResult.get();
+        }
         return null;
     }
 
     @Override
-    public User findUserById(int userId) {
-        return null;
+    public User findUserById(int userId)  {
+        Optional<User> userResult = userDAO.findById(userId);
+        if(userResult.isPresent()) {
+            return userResult.get();
+        } else {
+            return null;
+        }
     }
 
     @Override
     @Transactional
     public void saveFoodToMeal(Food food, Meal meal) {
-
+       meal.add(food);
+       mealDAO.save(meal);
     }
 
     @Override
     @Transactional
     public void saveFoodListToMeal(List<Food> foodList, Meal meal) {
-
+        foodList.forEach(meal::add);
+        mealDAO.save(meal);
     }
 
     @Override
     @Transactional
     public void saveUser(User user) {
-        userDAO.saveUser(user);
+        userDAO.save(user);
     }
 
     @Override
     @Transactional
-    public void saveMealToUser(Meal meal, int userId) {
-
+    public void saveMealToUser(Meal meal, User user) {
+        user.add(meal);
+        userDAO.save(user);
     }
 
     @Override
     @Transactional
-    public void saveMealListToUser(List<Meal> mealList, int userId) {
-
+    public void saveMealListToUser(List<Meal> mealList, User user) {
+        mealList.forEach(user::add);
+        userDAO.save(user);
     }
-
 
 
     @Override
     @Transactional
-    public void deleteFood(int id) {
-
+    public void deleteFood(Food food) {
+        foodDAO.delete(food);
     }
 
     @Override
     @Transactional
-    public void deleteFoods(List<Integer> foodIds) {
-
+    public void deleteFoods(List<Food> foodList) {
+        foodList.forEach(foodDAO::delete);
     }
 
     @Override
     @Transactional
-    public void deleteMeal(int mealId) {
-
+    public void deleteMeal(Meal meal) {
+        mealDAO.delete(meal);
     }
 
     @Override
     @Transactional
-    public void deleteMeals(List<Integer> mealIds) {
-
+    public void deleteMeals(List<Meal> mealList) {
+        mealList.forEach(mealDAO::delete);
     }
-
-
-//    @Override
-//    public List<Meal> findAllMealsForUser(int id) {
-//        Optional<User> userResult = userDAO.findById(id);
-//        List<Meal> mealList = null;
-//        if(userResult.isPresent()) {
-//            mealList = userResult.get().getMeals();
-//        }
-//        return mealList;
-//    }
-//
-//    @Override
-//    public Meal findMealById(int id) {
-//        Optional<Meal> mealResult = mealDAO.findById(id);
-//        Meal meal = null;
-//        if(mealResult.isPresent()) {
-//            meal = mealResult.get();
-//        }
-//        return meal;
-//    }
-//
-//    @Override
-//    public Food findFoodById(int id) {
-//        Optional<Food> foodResult = foodDAO.findById(id);
-//        Food food = null;
-//        if(foodResult.isPresent()) {
-//            food = foodResult.get();
-//        }
-//        return food;
-//    }
-//
-//    @Override
-//    public Food findAllFoodByMealId(int id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void saveFoodToMeal(Food food, Meal meal) {
-//        meal.add(food);
-//        food.setMeal(meal);
-//        mealDAO.save(meal);
-//    }
-//
-//    @Override
-//    public void saveFoodListToMeal(List<Food> foodList, Meal meal) {
-//        for(Food food : foodList) {
-//            meal.add(food);
-//            food.setMeal(meal);
-//        }
-//        mealDAO.save(meal);
-//    }
-//
-//    @Override
-//    public void saveMealToUser(Meal meal, int userId) {
-//        Optional<User> resultUser = userDAO.findById(userId);
-//        User user = null;
-//        if(resultUser.isPresent()) {
-//            user = resultUser.get();
-//            user.add(meal);
-//            meal.setUser(user);
-//        }
-//        userDAO.save(user);
-//    }
-//
-//    @Override
-//    public void saveMealListToUser(List<Meal> mealList, User user) {
-//
-//    }
-//
-//    @Override
-//    public void deleteMeal(int mealId) {
-//        mealDAO.deleteById(mealId);
-//    }
-
 }

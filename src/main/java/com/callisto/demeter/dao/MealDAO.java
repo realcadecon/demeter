@@ -4,17 +4,13 @@ import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
 import com.callisto.demeter.entity.Meal;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface MealDAO {
+public interface MealDAO extends JpaRepository<Meal, Integer> {
+    @Query("SELECT m FROM Meal m JOIN FETCH m.foods WHERE m.id = ?1") Meal findMealWithFoods(int mealID);
 
-    //Basic CRUD
-    void saveMeal(Meal meal);
-    void saveMeals(List<Meal> meals);
-    Meal findMealById(int id);
-    List<Meal> findMealsById(List<Integer> ids);
-    void updateMeal(Meal meal);
-    void deleteMealById(int id);
+    @Query("SELECT m FROM Meal m WHERE m.user.id = ?1") List<Meal> findMealsByUserIdLazy(int id);
 
 }

@@ -1,5 +1,6 @@
 package com.callisto.demeter.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity

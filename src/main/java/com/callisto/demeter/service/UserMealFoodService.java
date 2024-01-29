@@ -6,7 +6,7 @@ import com.callisto.demeter.entity.User;
 
 import java.util.List;
 
-public interface MealAndFoodService {
+public interface UserMealFoodService {
 
     // Many/List Finds
     List<User> findAllUsers();
@@ -29,17 +29,17 @@ public interface MealAndFoodService {
 
 
     // Update/Save Meal and Foods To User
-    void saveMealToUser(Meal meal, int userId);
-    void saveMealListToUser(List<Meal> mealList, int userId);
+    void saveMealToUser(Meal meal, User user);
+    void saveMealListToUser(List<Meal> mealList, User user);
 
 
     // Delete Food(s)
-    void deleteFood(int id);
-    void deleteFoods(List<Integer> foodIds);
+    void deleteFood(Food food);
+    void deleteFoods(List<Food> foodList);
 
 
     // Delete Meal(s)
-    void deleteMeal(int mealId);
-    void deleteMeals(List<Integer> mealIds);
+    void deleteMeal(Meal meal);
+    void deleteMeals(List<Meal> mealList);
 
 }

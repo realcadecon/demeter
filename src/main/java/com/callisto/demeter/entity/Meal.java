@@ -1,5 +1,7 @@
 package com.callisto.demeter.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -64,17 +66,21 @@ public class Meal {
         this.name = name;
     }
 
-    public Meal(String name, User user) {
-        this.name = name;
-        this.user = user;
-    }
-
     public void add(Food food) {
         if(foods == null) {
             foods = new ArrayList<>();
         }
         foods.add(food);
         food.setMeal(this);
+    }
+    public void add(List<Food> foodList) {
+        if(foods == null) {
+            foods = new ArrayList<>();
+        }
+        foodList.forEach(food -> {
+            food.setMeal(this);
+            foods.add(food);
+        });
     }
 
     @Override
@@ -83,7 +89,6 @@ public class Meal {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", user=" + user +
-                ", foods=" + foods +
                 '}';
     }
 }
