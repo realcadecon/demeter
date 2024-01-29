@@ -7,6 +7,7 @@ import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
 import com.callisto.demeter.entity.User;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,22 +30,26 @@ public class MealAndFoodServiceImpl implements MealAndFoodService {
     }
 
     @Override
-    public List<Meal> findAllMealsForUserIdLazy(int id) {
+    public List<User> findAllUsers() {
         return null;
     }
 
     @Override
-    public List<Food> findAllFoodsForMealIdLazy(int id) {
-        return null;
+    public User findUserWithMealsById(int id) {
+        return userDAO.findUserAndMealsByIdJoinFetch(id);
+    }
+
+    public List<Meal> findOnlyMealsByUserId(int id) {
+        return mealDAO.findMealsByUserIdLazy(id);
     }
 
     @Override
-    public Meal findMealAndFoodsByIdJoinFetch(int id) {
-        return null;
+    public Meal findMealWithFoodsById(int mealId) {
+        return mealDAO.findMealAndFoodsByIdJoinFetch(mealId);
     }
 
     @Override
-    public User findUserAndMealsByIdJoinFetch(int id) {
+    public List<Food> findOnlyFoodsByMealId(int mealId) {
         return null;
     }
 
@@ -54,41 +59,67 @@ public class MealAndFoodServiceImpl implements MealAndFoodService {
     }
 
     @Override
+    public Meal findMealById(int mealId) {
+        return null;
+    }
+
+    @Override
+    public User findUserById(int userId) {
+        return null;
+    }
+
+    @Override
+    @Transactional
     public void saveFoodToMeal(Food food, Meal meal) {
 
     }
 
     @Override
+    @Transactional
     public void saveFoodListToMeal(List<Food> foodList, Meal meal) {
 
     }
 
     @Override
+    @Transactional
+    public void saveUser(User user) {
+        userDAO.saveUser(user);
+    }
+
+    @Override
+    @Transactional
     public void saveMealToUser(Meal meal, int userId) {
 
     }
 
     @Override
+    @Transactional
     public void saveMealListToUser(List<Meal> mealList, int userId) {
 
     }
 
+
+
     @Override
+    @Transactional
     public void deleteFood(int id) {
 
     }
 
     @Override
+    @Transactional
     public void deleteFoods(List<Integer> foodIds) {
 
     }
 
     @Override
+    @Transactional
     public void deleteMeal(int mealId) {
 
     }
 
     @Override
+    @Transactional
     public void deleteMeals(List<Integer> mealIds) {
 
     }

@@ -8,26 +8,24 @@ import java.util.List;
 
 public interface MealAndFoodService {
 
-    // Table Display Operations
-    List<Meal> findAllMealsForUserIdLazy(int id);
-    List<Food> findAllFoodsForMealIdLazy(int id);
+    // Many/List Finds
+    List<User> findAllUsers();
+    User findUserWithMealsById(int userId);
+    List<Meal> findOnlyMealsByUserId(int userId);
+    Meal findMealWithFoodsById(int mealId);
+    List<Food> findOnlyFoodsByMealId(int mealId);
 
 
-    // Meal Detail Display Operations
-    Meal findMealAndFoodsByIdJoinFetch(int id);
-
-
-    //User and Meal Detail Display Operations
-    User findUserAndMealsByIdJoinFetch(int id);
-
-
-    // Food Detail Display Operations
-    Food findFoodById(int id);
+    // Individual Finds
+    Food findFoodById(int foodId);
+    Meal findMealById(int mealId);
+    User findUserById(int userId);
 
 
     // Update/Save Food To Meal
     void saveFoodToMeal(Food food, Meal meal);
     void saveFoodListToMeal(List<Food> foodList, Meal meal);
+    void saveUser(User user);
 
 
     // Update/Save Meal and Foods To User
