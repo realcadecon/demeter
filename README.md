@@ -83,7 +83,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![product-screenshot]](https://example.com)
 
 There are many great apps that enable you to eat healthy, make grocery shopping easier, or help you live a more environment-friendly lifestyle. I built this app to accomplish all three!
 
@@ -247,7 +247,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/realcadecon/demeter/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/cadejconner
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: /src/main/resources/static/images/MealList_ChromeLight.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
