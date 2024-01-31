@@ -27,7 +27,8 @@ public class Food {
     @Column(name = "amount")
     private int amount;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "meal_id")
     private Meal meal;
 

@@ -25,9 +25,12 @@ public class MealController {
     @GetMapping
     public String showAllMeals(@RequestParam("id") int id, Model model) {
         User user = umfService.findUserWithMealsById(id);
+        if(user == null) {
+            user = umfService.findUserById(id);
+        }
         List<Meal> mealList = user.getMeals();
         System.out.println(user);
-        model.addAttribute("User", user);
+        model.addAttribute("user", user);
         if(mealList == null) {
             model.addAttribute("error", "Couldn't find any meals for this user...");
         } else {
@@ -39,27 +42,37 @@ public class MealController {
     @PostMapping("/updateMealForm")
     public String showUpdateMealForm(@RequestParam("mealId") int mealId, Model model) {
         Meal meal = umfService.findMealWithFoodsById(mealId);
+        if(meal == null) {
+            meal = umfService.findMealById(mealId);
+        }
         model.addAttribute("meal", meal);
-        return "meals/food-update-form";
+        model.addAttribute("userId", meal.getUser().getId());
+        return "meals/meal-update-form";
     }
 
     @PostMapping("/update")
     public String updateMeal(@ModelAttribute Meal meal) {
-        int uid = meal.getUser().getId();
-        return "redirect:/meals?id="+uid;
+        if(meal.getFoods() != null) {
+            meal.getFoods().forEach(food -> food.setMeal(meal));
+        }
+        User user = meal.getUser();
+        umfService.saveMealToUser(meal, user);
+        return "redirect:/meals?id=" + user.getId();
     }
 
     @PostMapping("/createMealForm")
-    public String showCreateMealForm(@RequestParam("mealId") int mealId, Model model) {
-//        //Food food = umfService.findFoodById(foodId);
-//        model.addAttribute("foodToUpdate", food);
-        return "meals/food-create-form";
+    public String showCreateMealForm(@RequestParam("userId") int userId, Model model) {
+        User user = umfService.findUserById(userId);
+        model.addAttribute("user", user);
+        model.addAttribute("meal", new Meal());
+        return "meals/meal-create-form";
     }
 
     @PostMapping("/create")
-    public String createMeal(@ModelAttribute Meal meal) {
-        int uid = meal.getUser().getId();
-        return "redirect:/meals?id="+uid;
+    public String createMeal(@ModelAttribute Meal meal, @RequestParam("userId") int userId) {
+        User user = umfService.findUserById(userId);
+        umfService.saveMealToUser(meal, user);
+        return "redirect:/meals?id="+userId;
     }
 
     @PostMapping("/delete")

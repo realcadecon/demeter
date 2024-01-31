@@ -26,7 +26,17 @@ public class DemeterApplication {
 			//findJustUser(umfService);
 
 			//findBothMealAndFoods(umfService);
+
+			//updateMeal(umfService);
+
+			crudUserMealFood(umfService);
 		};
+	}
+
+	private void updateMeal(UserMealFoodService umfService) {
+		int id = 1;
+		User user = umfService.findUserById(1);
+
 	}
 
 	private void findOnlyFoods(UserMealFoodService umfService) {
@@ -78,10 +88,13 @@ public class DemeterApplication {
 		System.out.println("Creating new foods to add to meal");
 		Food tempFood = new Food("Eggs", "sydRut", 100, "g", 50);
 		Food tempFood2 = new Food("Ground Beef", "sydRut", 150, "oz", 4);
+		Food tempFood3 = new Food("Banana", "sydRut", 150, "1 banana", 1);
 		tempFood.setMeal(tempMeal);
 		tempFood2.setMeal(tempMeal);
+		tempFood3.setMeal(tempMeal);
 		tempMeal.add(tempFood);
 		tempMeal.add(tempFood2);
+		tempMeal.add(tempFood3);
 		umfService.saveUser(tempUser);
 	}
 
