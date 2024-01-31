@@ -81,7 +81,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project test edit
+## About The Project
 
 [![product-screenshot]](https://example.com)
 
