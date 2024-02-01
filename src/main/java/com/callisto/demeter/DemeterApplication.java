@@ -29,7 +29,7 @@ public class DemeterApplication {
 
 			//updateMeal(umfService);
 
-			crudUserMealFood(umfService);
+			//crudUserMealFood(umfService);
 		};
 	}
 
@@ -83,12 +83,12 @@ public class DemeterApplication {
 		System.out.println("Creating a new user");
 		User tempUser = new User("sydRut","sydRut","Sydney","srut@gmail.com");
 		System.out.println("Creating a new meal");
-		Meal tempMeal = new Meal("TestBreakfast");
+		Meal tempMeal = new Meal("Test-Breakfast", 0, 0, 0, 0);
 		tempUser.add(tempMeal);
 		System.out.println("Creating new foods to add to meal");
-		Food tempFood = new Food("Eggs", "sydRut", 100, "g", 50);
-		Food tempFood2 = new Food("Ground Beef", "sydRut", 150, "oz", 4);
-		Food tempFood3 = new Food("Banana", "sydRut", 150, "1 banana", 1);
+		Food tempFood = new Food("Eggs", 100, 20, 0, 10, "g", 50);
+		Food tempFood2 = new Food("Ground Beef", 100 , 30, 5, 8, "oz", 4);
+		Food tempFood3 = new Food("Banana", 85, 1, 30, 0, "1 banana", 1);
 		tempFood.setMeal(tempMeal);
 		tempFood2.setMeal(tempMeal);
 		tempFood3.setMeal(tempMeal);

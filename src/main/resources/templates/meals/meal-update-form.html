@@ -16,8 +16,13 @@
             <input type="hidden" th:field="*{id}">
             <input type="hidden" th:field="*{user}">
             <div class="bd-highlight p-2">
-                <input type="text" th:field="*{name}" placeholder="meal name">
+                <label for="meal-name">Meal Name:</label>
+                <input id="meal-name" type="text" th:field="*{name}" placeholder="meal name">
             </div>
+            <div>Calories:<span th:text="*{calories}"></span></div>
+            <div>Protein:<span th:text="*{protein}"></span></div>
+            <div>Carbs:<span th:text="*{carbs}"></span></div>
+            <div>Fat:<span th:text="*{fat}"></span></div>
             <div class="bd-highlight p-2">
                 <button type="submit" class="btn btn-info btn-sm">Save</button>
             </div>
@@ -33,8 +38,10 @@
         <thead class="table-dark">
         <tr>
             <th>Name</th>
-            <th>Author</th>
-            <th>Calories</th>
+            <th>Calories (kcal)</th>
+            <th>Protein (g)</th>
+            <th>Carbs (g)</th>
+            <th>Fat (g)</th>
             <th>Serving Size</th>
             <th>Amount</th>
             <th>Action</th>
@@ -45,8 +52,10 @@
             <!--NOTE: Wanted a check here for NULL meal.foods, but it doesn't appear to be a problem. -->
             <tr th:each="food, stat : ${meal.foods}" th:if="${not #lists.isEmpty(meal.foods)}">
                 <td th:text="${food.name}" class="mb-4"></td>
-                <td th:text="${food.author}" class="mb-4"></td>
                 <td th:text="${food.calories}" class="mb-4"></td>
+                <td th:text="${food.protein}" class="mb-4"></td>
+                <td th:text="${food.carbs}" class="mb-4"></td>
+                <td th:text="${food.fat}" class="mb-4"></td>
                 <td th:text="${food.serving_size}" class="mb-4"></td>
                 <td th:text="${food.amount}" class="mb-4"></td>
                 <td>

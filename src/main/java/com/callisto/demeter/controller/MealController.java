@@ -24,6 +24,7 @@ public class MealController {
 
     @GetMapping
     public String showAllMeals(@RequestParam("id") int id, Model model) {
+
         User user = umfService.findUserWithMealsById(id);
         if(user == null) {
             user = umfService.findUserById(id);

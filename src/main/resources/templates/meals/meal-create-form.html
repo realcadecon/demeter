@@ -21,11 +21,43 @@
                     <input type="text" th:field="*{name}" placeholder="meal name" class="form-control ml-5 w-50">
                 </div>
             </div>
+            <div class="d-flex flex-row align-items-center p-1">
+                <div class="p-2 bd-highlight">
+                    <span>Total Calories (kcal):</span>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <input type="text" th:field="*{calories}" placeholder="meal name" class="form-control ml-5 w-50">
+                </div>
+            </div>
+            <div class="d-flex flex-row align-items-center p-1">
+                <div class="p-2 bd-highlight">
+                    <span>Protein (g):</span>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <input type="text" th:field="*{protein}" placeholder="meal name" class="form-control ml-5 w-50">
+                </div>
+            </div>
+            <div class="d-flex flex-row align-items-center p-1">
+                <div class="p-2 bd-highlight">
+                    <span>Carbs (g):</span>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <input type="text" th:field="*{carbs}" placeholder="meal name" class="form-control ml-5 w-50">
+                </div>
+            </div>
+            <div class="d-flex flex-row align-items-center p-1">
+                <div class="p-2 bd-highlight">
+                    <span>Fat (g):</span>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <input type="text" th:field="*{fat}" placeholder="meal name" class="form-control ml-5 w-50">
+                </div>
+            </div>
         </div>
         <button type="submit" class="btn btn-info col-2">Save</button>
     </form>
     <hr>
-    <a th:href="@{/meals(id=${meal.id})}">Back to Meal List</a>
+    <a th:href="@{/meals(id=${user.id})}">Back to Meal List</a>
 </div>
 </body>
 </html>
