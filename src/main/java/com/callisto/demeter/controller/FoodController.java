@@ -59,6 +59,7 @@ public class FoodController {
         Food toDelete = umfService.findFoodById(foodId);
         Meal meal = toDelete.getMeal();
         model.addAttribute("meal", meal);
+        model.addAttribute("userId", meal.getUser().getId());
         umfService.deleteFood(toDelete);
         return "meals/meal-update-form";
     }

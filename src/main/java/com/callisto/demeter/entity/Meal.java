@@ -1,7 +1,5 @@
 package com.callisto.demeter.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -19,6 +17,18 @@ public class Meal {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "calories")
+    private int calories;
+
+    @Column(name = "protein")
+    private int protein;
+
+    @Column(name = "carbs")
+    private int carbs;
+
+    @Column(name = "fat")
+    private int fat;
+
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
                         CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
@@ -34,6 +44,38 @@ public class Meal {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
+    public int getProtein() {
+        return protein;
+    }
+
+    public void setProtein(int protein) {
+        this.protein = protein;
+    }
+
+    public int getCarbs() {
+        return carbs;
+    }
+
+    public void setCarbs(int carbs) {
+        this.carbs = carbs;
+    }
+
+    public int getFat() {
+        return fat;
+    }
+
+    public void setFat(int fat) {
+        this.fat = fat;
     }
 
     public int getId() {
@@ -62,8 +104,12 @@ public class Meal {
 
     public Meal() {}
 
-    public Meal(String name) {
+    public Meal(String name, int calories, int protein, int carbs, int fat) {
         this.name = name;
+        this.calories = calories;
+        this.protein = protein;
+        this.carbs = carbs;
+        this.fat = fat;
     }
 
     public void add(Food food) {
@@ -72,7 +118,20 @@ public class Meal {
         }
         foods.add(food);
         food.setMeal(this);
+
+        this.calories += food.getCalories();
+        this.protein += food.getProtein();
+        this.carbs += food.getCarbs();
+        this.fat += food.getFat();
     }
+
+    public void removeFoodFromSummary(Food food) {
+        this.calories -= food.getCalories();
+        this.protein -= food.getProtein();
+        this.carbs -= food.getCarbs();
+        this.fat -= food.getFat();
+    }
+
     public void add(List<Food> foodList) {
         if(foods == null) {
             foods = new ArrayList<>();

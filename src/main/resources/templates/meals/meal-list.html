@@ -18,14 +18,20 @@
             <thead class="table-dark">
             <tr>
                 <th>Name</th>
-                <th>Author</th>
+                <th>Calories (kcal)</th>
+                <th>Protein (g)</th>
+                <th>Carbs (g)</th>
+                <th>Fat (g)</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="meal, stat : ${mealList}" th:if="${not #lists.isEmpty(mealList)}">
                 <td th:text="${meal.name}"></td>
-                <td th:text="${meal.user.firstName}"></td>
+                <td th:text="${meal.calories}"></td>
+                <td th:text="${meal.protein}"></td>
+                <td th:text="${meal.carbs}"></td>
+                <td th:text="${meal.fat}"></td>
                 <td>
                     <div class="d-flex flew-row">
                         <div class="p-2">

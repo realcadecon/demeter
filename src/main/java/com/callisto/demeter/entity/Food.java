@@ -1,6 +1,5 @@
 package com.callisto.demeter.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,17 +14,22 @@ public class Food {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "author")
-    private String author;
-
     @Column(name = "calories")
     private int calories;
+    @Column(name = "protein")
+    private int protein;
+
+    @Column(name = "carbs")
+    private int carbs;
+
+    @Column(name = "fat")
+    private int fat;
 
     @Column(name = "serving_size")
     private String serving_size;
 
     @Column(name = "amount")
-    private int amount;
+    private float amount;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH})
@@ -48,20 +52,36 @@ public class Food {
         this.name = name;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public int getCalories() {
         return calories;
     }
 
     public void setCalories(int calories) {
         this.calories = calories;
+    }
+
+    public int getProtein() {
+        return protein;
+    }
+
+    public void setProtein(int protein) {
+        this.protein = protein;
+    }
+
+    public int getCarbs() {
+        return carbs;
+    }
+
+    public void setCarbs(int carbs) {
+        this.carbs = carbs;
+    }
+
+    public int getFat() {
+        return fat;
+    }
+
+    public void setFat(int fat) {
+        this.fat = fat;
     }
 
     public String getServing_size() {
@@ -72,11 +92,11 @@ public class Food {
         this.serving_size = serving_size;
     }
 
-    public int getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 
@@ -90,10 +110,12 @@ public class Food {
 
     public Food () {}
 
-    public Food(String name, String author, int calories, String serving_size, int amount) {
+    public Food(String name, int calories, int protein, int carbs, int fat, String serving_size, int amount) {
         this.name = name;
-        this.author = author;
         this.calories = calories;
+        this.protein = protein;
+        this.carbs = carbs;
+        this.fat = fat;
         this.serving_size = serving_size;
         this.amount = amount;
     }
@@ -101,11 +123,11 @@ public class Food {
     @Override
     public String toString() {
         return "Food{" +
-                "id=" + id +
-                ", meal=" + meal +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
+                "name='" + name + '\'' +
                 ", calories=" + calories +
+                ", proteins=" + protein +
+                ", carbs=" + carbs +
+                ", fats=" + fat +
                 ", serving_size='" + serving_size + '\'' +
                 ", amount=" + amount +
                 '}';

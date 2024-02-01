@@ -19,6 +19,10 @@ CREATE TABLE `user` (
 CREATE TABLE `meal` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
+  `calories` int DEFAULT NULL,
+  `protein` int DEFAULT NULL,
+  `carbs` int DEFAULT NULL,
+  `fat` int DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES `user`(`id`)
@@ -34,10 +38,12 @@ CREATE TABLE `food` (
   `id` int NOT NULL AUTO_INCREMENT,
   `meal_id` int DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `author` varchar(45) DEFAULT NULL,
   `calories` int DEFAULT NULL,
+  `protein` int DEFAULT NULL,
+  `carbs` int DEFAULT NULL,
+  `fat` int DEFAULT NULL,
   `serving_size` varchar(45) DEFAULT NULL,
-  `amount` int DEFAULT NULL,
+  `amount` float DEFAULT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`meal_id`) REFERENCES `meal`(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;

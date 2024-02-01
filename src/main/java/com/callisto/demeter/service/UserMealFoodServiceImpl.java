@@ -120,6 +120,8 @@ public class UserMealFoodServiceImpl implements UserMealFoodService {
     @Override
     @Transactional
     public void deleteFood(Food food) {
+        Meal meal = food.getMeal();
+        meal.removeFoodFromSummary(food);
         foodDAO.delete(food);
     }
 
