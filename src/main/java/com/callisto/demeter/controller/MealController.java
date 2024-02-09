@@ -30,7 +30,6 @@ public class MealController {
             user = umfService.findUserById(id);
         }
         List<Meal> mealList = user.getMeals();
-        System.out.println(user);
         model.addAttribute("user", user);
         if(mealList == null) {
             model.addAttribute("error", "Couldn't find any meals for this user...");
