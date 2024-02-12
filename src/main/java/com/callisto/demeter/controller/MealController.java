@@ -53,9 +53,6 @@ public class MealController {
 
     @PostMapping("/update")
     public String updateMeal(@ModelAttribute Meal meal) {
-        if(meal.getFoods() != null) {
-            meal.getFoods().forEach(food -> food.setMeal(meal));
-        }
         User user = meal.getUser();
         umfService.saveMealToUser(meal, user);
         return "redirect:/meals?id=" + user.getId();
