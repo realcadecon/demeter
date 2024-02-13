@@ -43,4 +43,6 @@ public interface UserMealFoodService extends UserDetailsService {
     void deleteMeal(Meal meal);
     void deleteMeals(List<Meal> mealList);
 
+    User findUserWithMealsByUsername(String currentUserName);
+    User findUserByUsername(String currentUserName);
 }

@@ -11,6 +11,9 @@ public interface UserDAO extends JpaRepository<User, Integer> {
     @Query("SELECT i FROM User i JOIN FETCH i.meals WHERE i.id = ?1")
     User findUserAndMealsByIdJoinFetch(int id);
 
+    @Query("SELECT u FROM User u JOIN FETCH u.meals WHERE u.username = ?1")
+    User findUserAndMealsByUsernameJoinFetch(String username);
+
     @Query("SELECT u FROM User u WHERE u.id in ?1")
     List<User> findUsersById(String ids);
 

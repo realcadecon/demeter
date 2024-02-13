@@ -54,17 +54,17 @@ VALUES
 
 CREATE TABLE `meal` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `calories` int DEFAULT NULL,
-  `protein` int DEFAULT NULL,
-  `carbs` int DEFAULT NULL,
-  `fat` int DEFAULT NULL,
+  `name` varchar(45) DEFAULT '',
+  `calories` int DEFAULT 0,
+  `protein` int DEFAULT 0,
+  `carbs` int DEFAULT 0,
+  `fat` int DEFAULT 0,
   `user_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES `user`(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-
+INSERT INTO `meal` (`name`, `user_id`) VALUES ('Breakfast', 1);
 --
 --  Food includes nutritional information, meal id, 
 --    - food would be ideally pulled from USDA database and assigned to meals using a foreign key (meal id)

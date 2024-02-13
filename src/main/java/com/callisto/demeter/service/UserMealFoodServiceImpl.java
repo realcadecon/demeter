@@ -151,6 +151,16 @@ public class UserMealFoodServiceImpl implements UserMealFoodService {
     }
 
     @Override
+    public User findUserWithMealsByUsername(String currentUserName) {
+        return userDAO.findUserAndMealsByUsernameJoinFetch(currentUserName);
+    }
+
+    @Override
+    public User findUserByUsername(String currentUserName) {
+        return userDAO.findByUsername(currentUserName);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDAO.findByUsername(username);
         if(user == null) {
