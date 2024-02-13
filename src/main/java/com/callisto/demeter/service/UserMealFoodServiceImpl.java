@@ -2,6 +2,7 @@ package com.callisto.demeter.service;
 
 import com.callisto.demeter.dao.FoodDAO;
 import com.callisto.demeter.dao.MealDAO;
+import com.callisto.demeter.dao.RoleDAO;
 import com.callisto.demeter.dao.UserDAO;
 import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
@@ -26,13 +27,15 @@ public class UserMealFoodServiceImpl implements UserMealFoodService {
     private FoodDAO foodDAO;
     private MealDAO mealDAO;
     private UserDAO userDAO;
+    private RoleDAO roleDAO;
 
 
     @Autowired
-    public UserMealFoodServiceImpl(FoodDAO foodDAO, MealDAO mealDAO, UserDAO userDAO) {
+    public UserMealFoodServiceImpl(FoodDAO foodDAO, MealDAO mealDAO, UserDAO userDAO, RoleDAO roleDAO) {
         this.foodDAO = foodDAO;
         this.mealDAO = mealDAO;
         this.userDAO = userDAO;
+        this.roleDAO = roleDAO;
     }
 
     @Override
@@ -158,6 +161,16 @@ public class UserMealFoodServiceImpl implements UserMealFoodService {
     @Override
     public User findUserByUsername(String currentUserName) {
         return userDAO.findByUsername(currentUserName);
+    }
+
+    @Override
+    public Role findRoleById(int roleId) {
+        Optional<Role> res = roleDAO.findById(roleId);
+        Role role = null;
+        if(res.isPresent()) {
+            role = res.get();
+        }
+        return role;
     }
 
     @Override

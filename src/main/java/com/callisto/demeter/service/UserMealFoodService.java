@@ -2,6 +2,7 @@ package com.callisto.demeter.service;
 
 import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
+import com.callisto.demeter.entity.Role;
 import com.callisto.demeter.entity.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -45,4 +46,7 @@ public interface UserMealFoodService extends UserDetailsService {
 
     User findUserWithMealsByUsername(String currentUserName);
     User findUserByUsername(String currentUserName);
+
+    // Find Role(s)
+    Role findRoleById(int roleId);
 }
