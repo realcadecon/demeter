@@ -5,6 +5,8 @@ import com.callisto.demeter.entity.User;
 import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.service.UserMealFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,14 +25,13 @@ public class MealController {
     }
 
     @GetMapping
-    public String showAllMeals(@RequestParam("id") int id, Model model) {
-
-        User user = umfService.findUserWithMealsById(id);
+    public String showAllMeals(Model model) {
+        String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = umfService.findUserWithMealsByUsername(currentUserName);
         if(user == null) {
-            user = umfService.findUserById(id);
+            user = umfService.findUserByUsername(currentUserName);
         }
         List<Meal> mealList = user.getMeals();
-        System.out.println(user);
         model.addAttribute("user", user);
         if(mealList == null) {
             model.addAttribute("error", "Couldn't find any meals for this user...");

@@ -1,9 +1,9 @@
 package com.callisto.demeter.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -27,18 +27,38 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "enabled")
+    private int enabled;
+
     @OneToMany(mappedBy = "user",
             cascade = { CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Meal> meals;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Collection<Role> roles;
+
     public User() {}
 
-    public User(String username, String password, String firstName, String email) {
+    public User(String username, String password, String firstName, String email, int enabled) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.email = email;
+        this.enabled = enabled;
+    }
+
+    public User(String username, String password, String firstName, String email, int enabled, List<Meal> meals, List<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.email = email;
+        this.enabled = enabled;
+        this.meals = meals;
+        this.roles = roles;
     }
 
     public String getUsername() {
@@ -81,12 +101,28 @@ public class User {
         this.id = id;
     }
 
+    public int isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
+    }
+
     public List<Meal> getMeals() {
         return meals;
     }
 
     public void setMeals(List<Meal> meals) {
         this.meals = meals;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public void add(Meal meal) {

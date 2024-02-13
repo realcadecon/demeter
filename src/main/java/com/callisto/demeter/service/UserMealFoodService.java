@@ -3,10 +3,11 @@ package com.callisto.demeter.service;
 import com.callisto.demeter.entity.Food;
 import com.callisto.demeter.entity.Meal;
 import com.callisto.demeter.entity.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-public interface UserMealFoodService {
+public interface UserMealFoodService extends UserDetailsService {
 
     // Many/List Finds
     List<User> findAllUsers();
@@ -42,4 +43,6 @@ public interface UserMealFoodService {
     void deleteMeal(Meal meal);
     void deleteMeals(List<Meal> mealList);
 
+    User findUserWithMealsByUsername(String currentUserName);
+    User findUserByUsername(String currentUserName);
 }
