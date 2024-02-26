@@ -1,0 +1,132 @@
+:root {
+    --primary-color: #D46842;
+    --primary-alt: #817A81;
+    --scrim: #000000;
+    --on-tertiary: #FFFFFF;
+    --tertiary: #777E5C;
+    font-family: Roboto;
+    margin: 0 80px;
+
+}
+
+/* evolution_nature_plant-4 */
+.evolution-nature-plant-4 {
+    position: absolute;
+    width: 18px;
+    height: 42px;
+    left: 0px;
+    top: 23.38px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 10px 0;
+    padding: 20px 0;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.navbar-container .nav-link {
+    color: var(--scrim);
+    text-decoration: none;
+    font-style: none;
+}
+
+.logo-title-container,
+#logo-title {
+    display: flex;
+    flex: 2;
+    font-size: 28px;
+    gap: 10px;
+    color: var(--primary-color);
+    font-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: space-around;
+    flex: 4;
+    gap: 10px;
+}
+
+.login-signup {
+    display: flex;
+    flex: 2;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.signup-btn {
+    flex-shrink: 0;
+    padding: 0 20px 5px 20px;
+    color: var(--on-tertiary);
+    background-color: var(--primary-color);
+    border-radius: 50px;
+}
+
+.signup-btn a {
+    color: var(--on-tertiary) !important;
+}
+
+.navbar-container a:hover {
+    color: var(--primary-color);
+}
+
+.signup-btn a:hover {
+    color: var(--on-tertiary);
+}
+
+.signup-btn:hover {
+    background-color: var(--tertiary);
+}
+
+
+.main-content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 950px;
+    margin-left: 100px;
+    margin-top: 60px;
+}
+
+.main-content-title {
+    color: var(--primary-alt);
+    font-size: 57px;
+    font-weight: 500;
+}
+
+#main-content-title-span {
+    color: var(--primary-color);
+}
+
+.main-content-par {
+    color: var(--primary-alt);
+    font-size: 24px;
+    max-width: 850px;
+}
+
+.main-content-btn {
+    background-color: var(--primary-alt);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--on-tertiary);
+    width: 281px;
+    height: 78px;
+    left: 0px;
+    top: 208px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    text-decoration: none;
+}
+
+.main-content-btn:hover {
+    background-color: var(--tertiary);
+}

@@ -23,6 +23,7 @@ public class SecurityConfig {
                                 .requestMatchers("/").permitAll()
                                 .requestMatchers("/register").permitAll()
                                 .requestMatchers("/processRegistration").permitAll()
+                                .requestMatchers("/css/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(form ->
