@@ -95,6 +95,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![MySQL][MySQL-badge]][MySQL-url]
 * [![Java][Java-badge]][Java-url]
 * [![HTML5][HTML-badge]][HTML-url]
+* [![AWS][AWS-badge]][AWS-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -244,3 +245,5 @@ Use this space to list resources you find helpful and would like to give credit 
 [MySQL-url]: https://www.mysql.com/
 [HTML-badge]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [HTML-url]: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics
+[AWS-badge]: https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white
+[AWS-url]: https://aws.amazon.com/

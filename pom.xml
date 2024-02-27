@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.callisto</groupId>
 	<artifactId>demeter</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>demeter</name>
 	<description>The zero-waste, low-effort meal-prepper&apos;s planner.</description>
 	<properties>
