@@ -71,7 +71,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![product-screenshot]](https://example.com)
+[![product-screenshot]](https://demeter-app.com)
 
 There are many great apps that enable you to eat healthy, make grocery shopping easier, or help you live a more environment-friendly lifestyle. I built this app to accomplish all three!
 
@@ -95,6 +95,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![MySQL][MySQL-badge]][MySQL-url]
 * [![Java][Java-badge]][Java-url]
 * [![HTML5][HTML-badge]][HTML-url]
+* [![AWS][AWS-badge]][AWS-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -229,7 +230,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/realcadecon/demeter/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/cadejconner
-[product-screenshot]: /src/main/resources/static/images/MealList_ChromeLight.png
+[product-screenshot]: /src/main/resources/static/images/light.png
 [SpringBoot-badge]: https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot
 [SpringBoot-url]: https://spring.io/projects/spring-boot
 [Spring-badge]: https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white
@@ -244,3 +245,5 @@ Use this space to list resources you find helpful and would like to give credit 
 [MySQL-url]: https://www.mysql.com/
 [HTML-badge]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [HTML-url]: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics
+[AWS-badge]: https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white
+[AWS-url]: https://aws.amazon.com/
