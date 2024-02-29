@@ -1,0 +1,215 @@
+/* html {
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: -webkit-linear-gradient(to bottom, rgba(255, 244, 230, 1) 0%,rgba(206, 212, 218, 1) 100%);
+    background: -moz-linear-gradient(to bottom, rgba(255, 244, 230, 1) 0%,rgba(206, 212, 218, 1) 100%);
+    background: -ms-linear-gradient(to bottom, rgba(255, 244, 230, 1) 0%,rgba(206, 212, 218, 1) 100%);
+    background: -o-linear-gradient(to bottom, rgba(255, 244, 230, 1) 0%,rgba(206, 212, 218, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 244, 230, 1) 0%,rgba(206, 212, 218, 1) 100%);
+} */
+
+:root {
+    --grey-9: #212529;
+    --grey-8: #343A40;
+    --grey-2: #E9ECEF;
+    --red-4: #FFA8A8;
+    font-family: roboto;
+}
+
+.page-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: var(--grey-9);
+    width: 130px;
+    height: 100vh;
+}
+
+.logout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grey-2);
+    border-radius: 10px;
+    width: 113px;
+    height: 35px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.main-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 100px;
+    margin-left: 170px;
+}
+
+.main-content-title {
+    color: var(--grey-9);
+    font-style: normal;
+    font-size: 57px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    margin-bottom: 55px;
+}
+
+.main-content-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    gap: 30px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 306px;
+    height: 306px;
+    background-color: var(--grey-9);
+    border-radius: 30px 0 30px 0;
+    box-shadow: 4px 4px 4px 0px rgba(177, 151, 252, 1);
+    gap: 7.25px;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+.card-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 255px;
+}
+
+form.hide-submit input[type="submit"] {
+    display: none;
+}
+
+.card-edit-btn:hover {
+    cursor: pointer;
+}
+
+.card-edit-btn:hover path {
+    fill: var(--red-4) !important;
+}
+
+.card-title {
+    color: var(--red-4);
+    height: 50px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.card-sub-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 190px;
+    gap: 7.25px;
+}
+
+.card-sub-title {
+    color: var(--grey-2);
+    font-style: normal;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.grocery-list-container {
+    margin-top: 100px;
+    margin-right: 80px;
+    margin-bottom: 100px;
+    max-width: 400px;
+    width: 100%;
+    min-width: 200px;
+    min-height: 80vh;
+}
+
+.list-bg {
+    padding-top: 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: var(--grey-8);
+    box-shadow: 10px 10px 4px 0px rgba(229, 153, 247, 1);
+    gap: 42px;
+}
+
+.list-title {
+    font-style: normal;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    color: var(--grey-2);
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.food-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 29px;
+    background-color: var(--grey-9);
+    display: flex;
+    width: 313px;
+    height: 54px;
+    border-radius: 10px 10px 10px 0px;
+}
+
+.sub-food-container {
+    color: var(--grey-2);
+}
+
+.edit-btn {
+    width: 14px;
+    height: 14px;
+}
+
+.progress-bar {
+    width: 48px;
+    height: 48px;
+    border-radius: 60%;   
+}
