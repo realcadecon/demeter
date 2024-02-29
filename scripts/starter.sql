@@ -55,6 +55,10 @@ VALUES
 CREATE TABLE `meal` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT '',
+  `calories-goal` int DEFAULT 0,
+  `protein-goal` int DEFAULT 0,
+  `carbs-goal` int DEFAULT 0,
+  `fat-goal` int DEFAULT 0,
   `calories` int DEFAULT 0,
   `protein` int DEFAULT 0,
   `carbs` int DEFAULT 0,

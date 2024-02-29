@@ -29,6 +29,18 @@ public class Meal {
     @Column(name = "fat")
     private int fat;
 
+    @Column(name = "calories-goal")
+    private int caloriesGoal;
+
+    @Column(name = "protein-goal")
+    private int proteinGoal;
+
+    @Column(name = "carbs-goal")
+    private int carbsGoal;
+
+    @Column(name = "fat-goal")
+    private int fatGoal;
+
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
                         CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
@@ -78,6 +90,38 @@ public class Meal {
         this.fat = fat;
     }
 
+    public int getCaloriesGoal() {
+        return caloriesGoal;
+    }
+
+    public void setCaloriesGoal(int caloriesGoal) {
+        this.caloriesGoal = caloriesGoal;
+    }
+
+    public int getProteinGoal() {
+        return proteinGoal;
+    }
+
+    public void setProteinGoal(int proteinGoal) {
+        this.proteinGoal = proteinGoal;
+    }
+
+    public int getCarbsGoal() {
+        return carbsGoal;
+    }
+
+    public void setCarbsGoal(int carbsGoal) {
+        this.carbsGoal = carbsGoal;
+    }
+
+    public int getFatGoal() {
+        return fatGoal;
+    }
+
+    public void setFatGoal(int fatGoal) {
+        this.fatGoal = fatGoal;
+    }
+
     public int getId() {
         return id;
     }
@@ -104,12 +148,16 @@ public class Meal {
 
     public Meal() {}
 
-    public Meal(String name, int calories, int protein, int carbs, int fat) {
+    public Meal(String name, int calories, int protein, int carbs, int fat, int caloriesGoal, int proteinGoal, int carbsGoal, int fatGoal) {
         this.name = name;
         this.calories = calories;
         this.protein = protein;
         this.carbs = carbs;
         this.fat = fat;
+        this.caloriesGoal = caloriesGoal;
+        this.proteinGoal = proteinGoal;
+        this.carbsGoal = carbsGoal;
+        this.fatGoal = fatGoal;
     }
 
     public void add(Food food) {
@@ -130,16 +178,6 @@ public class Meal {
         this.protein -= food.getProtein();
         this.carbs -= food.getCarbs();
         this.fat -= food.getFat();
-    }
-
-    public void add(List<Food> foodList) {
-        if(foods == null) {
-            foods = new ArrayList<>();
-        }
-        foodList.forEach(food -> {
-            food.setMeal(this);
-            foods.add(food);
-        });
     }
 
     @Override
