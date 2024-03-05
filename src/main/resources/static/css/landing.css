@@ -127,7 +127,7 @@ body {
 }
 
 .main-content-text {
-    grid-column: 1/5;
+    grid-column: 2/4;
     font-style: normal;
     font-size: 18px;
     font-weight: 400;
