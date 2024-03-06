@@ -119,13 +119,6 @@ a:hover {
     color: var(--orange-7);
 }
 
-.username-input {
-    border: 1px solid var(--orange-7);
-    width: 100%;
-    height: 50px;
-    border-radius: 10px;
-}
-
 .password-container {
     grid-column: 2;
     grid-row: 7;
@@ -141,20 +134,21 @@ a:hover {
     color: var(--orange-7);
 }
 
-.password-input {
+.input-box {
     border: 1px solid var(--orange-7);
     width: 100%;
     height: 50px;
     border-radius: 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
+
 
 .login-btn {
     grid-column: 2;
     grid-row: 8;
     width: 100%;
     height: 50px;
-    left: 12.5px;
-    top: 560px;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.2;
@@ -165,6 +159,9 @@ a:hover {
     background-color: var(--orange-7);
     border-radius: 10px;
     transition: all .2s ease-in-out;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid var(--orange-7);
 }
 
 .login-btn:hover {

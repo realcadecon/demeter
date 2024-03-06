@@ -1,5 +1,5 @@
 :root {
-    --orange-9: #D9480F;
+    --orange-9: #F76707;
     --grey-7: #495057;
     --grey-2: #E9ECEF;
     font-family: Roboto;
@@ -152,7 +152,7 @@ body {
     top: 409px;
     border-radius: 10px;
     color: var(--grey-2);
-    background-color: rgba(217, 72, 15, 1);
+    background-color: var(--orange-9);
     justify-self: center;
     transition: all .2s ease-in-out;
     text-decoration: none;
