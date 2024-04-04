@@ -5,55 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba5dc708-e027-4099-a85c-501900ef38be" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/create-user.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/roles.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/starter.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test-users.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/DemeterApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/controller/FoodController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/controller/MealController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/controller/noauth/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/dao/FoodDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/dao/MealDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/dao/RoleDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/dao/UserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/entity/Food.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/entity/Meal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/entity/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/security/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/service/UserMealFoodService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/callisto/demeter/service/UserMealFoodServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/landing.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/meal-create-form.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/meal-list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/register.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/tables.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/MealList_ChromeDark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/MealList_ChromeLight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/foods/food-create-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/foods/food-update-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/meals/meal-create-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/meals/meal-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/meals/meal-update-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/noauth/landing.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/noauth/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/noauth/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/callisto/demeter/DemeterApplicationTests.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/DropDownIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/EyeIcons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/LandingPageMainPicture.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/MainLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/SocialIcons/Facebook.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/SocialIcons/Twitter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/SocialIcons/Youtube.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/Link.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ThemeSelector.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/HeadDefault.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/Landing/HomePage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/LayoutDefault.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/NavbarAndFooter/Footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/NavbarAndFooter/Navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/Utils/LoginModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/tailwind.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/+config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/+onPageTransitionEnd.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/+onPageTransitionStart.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/_error/+Page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/index/+Page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/index/Counter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/@id/+Page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/@id/+data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/@id/+title.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/index/+Page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/index/+data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/index/+title.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/postcss.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/tailwind.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,14 +59,14 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2eKrnkGgrGKpOHq7xLzNyVr63JI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -88,9 +78,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "33-port-new-meal-form-design",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/cadea/Documents/demeter/backend"
+    "last_opened_file_path": "C:/Users/cadea/Documents/demeter"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cadea\Documents\demeter" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
