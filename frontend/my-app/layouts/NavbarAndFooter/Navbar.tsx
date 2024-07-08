@@ -19,7 +19,7 @@ export const Navbar = () => {
             {/* Desktop */}
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a>About</a></li>
                     <li>
                         <details>
