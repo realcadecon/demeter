@@ -13,9 +13,9 @@ public class OAuth2ClientController {
     private ClientRegistrationRepository clientRegistrationRepository;
 
 
-    @RequestMapping("/oauth2")
-    public String oauth2() {
-        ClientRegistration googleRegistration = this.clientRegistrationRepository.findByRegistrationId("google");
-        return "index";
-    }
+//    @RequestMapping("/oauth2")
+//    public String oauth2() {
+//        ClientRegistration googleRegistration = this.clientRegistrationRepository.findByRegistrationId("google");
+//        return "index";
+//    }
 }

@@ -4,47 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba5dc708-e027-4099-a85c-501900ef38be" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/DropDownIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/EyeIcons.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/LandingPageMainPicture.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/MainLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/SocialIcons/Facebook.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/SocialIcons/Twitter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/assets/SocialIcons/Youtube.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/Link.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ThemeSelector.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/HeadDefault.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/Landing/HomePage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/LayoutDefault.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/NavbarAndFooter/Footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/NavbarAndFooter/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/Utils/LoginModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/layouts/tailwind.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/+config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/+onPageTransitionEnd.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/+onPageTransitionStart.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/_error/+Page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/index/+Page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/index/Counter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/@id/+Page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/@id/+data.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/@id/+title.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/index/+Page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/index/+data.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/index/+title.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/pages/star-wars/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/postcss.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/tailwind.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="ba5dc708-e027-4099-a85c-501900ef38be" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,9 +36,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "33-port-new-meal-form-design",
+    "git-widget-placeholder": "frontend__buildout",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/cadea/Documents/demeter"
+    "last_opened_file_path": "C:/Users/cadea/Documents/demeter/backend"
   }
 }]]></component>
   <component name="RecentsManager">

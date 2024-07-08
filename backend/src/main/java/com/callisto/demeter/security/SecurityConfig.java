@@ -35,57 +35,63 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth ->
-                        auth
-                                .requestMatchers("/generic").permitAll()
-                                .requestMatchers("/auth/welcome", "/auth/addNewUser", "/auth/generateToken").permitAll()
-                                .anyRequest().authenticated())
-                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authenticationProvider(authenticationProvider())
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
-//                .authorizeHttpRequests(configurer ->
-//                        configurer
+//                .csrf(csrf -> csrf.disable())
+//                .authorizeHttpRequests(auth ->
+//                        auth
 //                                .requestMatchers("/").permitAll()
+//                                .requestMatchers("/generic").permitAll()
 //                                .requestMatchers("/register").permitAll()
 //                                .requestMatchers("/processRegistration").permitAll()
 //                                .requestMatchers("/css/**").permitAll()
 //                                .requestMatchers("/api/**").permitAll()
-//                                .anyRequest().authenticated()
-//                )
-//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-//                )
-//                .formLogin(form ->
-//                        form
-//                                .loginPage("/login")
-//                                .loginProcessingUrl("/authenticate")
-//                                .permitAll()
-//                                .defaultSuccessUrl("/meals", true)
-//                )
-//                .logout(logout -> logout.permitAll()
-//                );
+//                                .requestMatchers("/auth/welcome", "/auth/addNewUser", "/auth/generateToken").permitAll()
+//                                .anyRequest().authenticated())
+////                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS));
+//                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .authenticationProvider(authenticationProvider())
+//                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
+                .authorizeHttpRequests(configurer ->
+                        configurer
+                                .requestMatchers("/").permitAll()
+                                .requestMatchers("/register").permitAll()
+                                .requestMatchers("/processRegistration").permitAll()
+                                .requestMatchers("/css/**").permitAll()
+                                .requestMatchers("/api/**").permitAll()
+                                .anyRequest().authenticated()
+                )
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+                )
+                .formLogin(form ->
+                        form
+                                .loginPage("/login")
+                                .loginProcessingUrl("/authenticate")
+                                .permitAll()
+                                .defaultSuccessUrl("/meals", true)
+                )
+                .logout(logout -> logout.permitAll()
+                );
 
         return http.build();
     }
 
-    private AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider daoAuth = new DaoAuthenticationProvider();
-        daoAuth.setUserDetailsService(userDetailsService());
-        daoAuth.setPasswordEncoder(passwordEncoder());
-        return daoAuth;
-    }
+//    private AuthenticationProvider authenticationProvider() {
+//        DaoAuthenticationProvider daoAuth = new DaoAuthenticationProvider();
+//        daoAuth.setUserDetailsService(userDetailsService());
+//        daoAuth.setPasswordEncoder(passwordEncoder());
+//        return daoAuth;
+//    }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public DaoAuthenticationProvider daoAuthenticationProvider(UserMealFoodService umfService) {
-//        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-//        auth.setUserDetailsService(umfService);
-//        auth.setPasswordEncoder(passwordEncoder());
-//        return auth;
-//    }
+    @Bean
+    public DaoAuthenticationProvider daoAuthenticationProvider(UserMealFoodService umfService) {
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+        auth.setUserDetailsService(umfService);
+        auth.setPasswordEncoder(passwordEncoder());
+        return auth;
+    }
 }
