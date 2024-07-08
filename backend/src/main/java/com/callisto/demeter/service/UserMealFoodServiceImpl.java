@@ -9,6 +9,7 @@ import com.callisto.demeter.entity.Meal;
 import com.callisto.demeter.entity.Role;
 import com.callisto.demeter.entity.User;
 import jakarta.transaction.Transactional;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,6 +23,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@NoArgsConstructor
 public class UserMealFoodServiceImpl implements UserMealFoodService {
 
     private FoodDAO foodDAO;
@@ -108,8 +110,9 @@ public class UserMealFoodServiceImpl implements UserMealFoodService {
 
     @Override
     @Transactional
-    public void saveUser(User user) {
+    public String saveUser(User user) {
         userDAO.save(user);
+        return "user successfully saved";
     }
 
     @Override
@@ -179,9 +182,9 @@ public class UserMealFoodServiceImpl implements UserMealFoodService {
         if(user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
+        Collection<? extends GrantedAuthority> authorities = mapRolesToAuthorities(user.getRoles());
         //create a GrantedAuthority for each user based on their list of Roles
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-                mapRolesToAuthorities(user.getRoles()));
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {

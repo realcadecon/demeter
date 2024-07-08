@@ -27,7 +27,7 @@ public interface UserMealFoodService extends UserDetailsService {
     // Update/Save Food To Meal
     void saveFoodToMeal(Food food, Meal meal);
     void saveFoodListToMeal(List<Food> foodList, Meal meal);
-    void saveUser(User user);
+    String saveUser(User user);
 
 
     // Update/Save Meal and Foods To User
