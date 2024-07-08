@@ -1,3 +1,4 @@
+import React from "react";
 import { Facebook } from "../../assets/SocialIcons/Facebook";
 import { Twitter } from "../../assets/SocialIcons/Twitter"
 import { Youtube } from "../../assets/SocialIcons/Youtube"

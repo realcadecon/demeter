@@ -1,9 +1,26 @@
-import { useState } from "react";
+import React from "react";
+
+import { useState, useEffect } from "react";
 import { DropDownIcon } from "../../assets/DropDownIcon";
 import { MainLogo } from "../../assets/MainLogo";
 import { ThemeSelector } from "../../components/ThemeSelector";
 import { LoginModal } from "../Utils/LoginModal";
+
 export const Navbar = () => {
+
+    const [isDark, setIsDark] = useState(null);
+
+    useEffect(() => {
+        const savedTheme = JSON.parse(localStorage.getItem('isDark')!);
+        setIsDark(savedTheme ? savedTheme : false);
+    }, []);
+
+
+    useEffect(() => {
+        if (typeof isDark === "boolean") {
+            localStorage.setItem('isDark', JSON.stringify(isDark));
+        }
+    }, [isDark]);
 
     let [showLogin, setShowLogin] = useState(false);
 
@@ -34,7 +51,7 @@ export const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <span className="hidden lg:flex mr-1">
-                    <ThemeSelector themeAlt="dracula" />
+                    <ThemeSelector themeAlt="dracula" bDark={isDark} setTheme={setIsDark}/>
                 </span>
                 <a className="btn btn-ghost mr-1 hover:underline hidden lg:flex" 
                     onClick={() => document.getElementById('my_modal_3').showModal()}>
