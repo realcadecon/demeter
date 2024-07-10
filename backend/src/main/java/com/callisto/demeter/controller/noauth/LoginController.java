@@ -3,12 +3,14 @@ package com.callisto.demeter.controller.noauth;
 import com.callisto.demeter.entity.Role;
 import com.callisto.demeter.entity.User;
 import com.callisto.demeter.service.UserMealFoodService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class LoginController {
     private UserMealFoodService umfService;
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
     public LoginController(UserMealFoodService umfService, BCryptPasswordEncoder passwordEncoder) {
         this.umfService = umfService;
         this.passwordEncoder = passwordEncoder;

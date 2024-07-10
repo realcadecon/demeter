@@ -26,13 +26,17 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class UserMealFoodServiceImpl implements UserMealFoodService {
 
+    @Autowired
     private FoodDAO foodDAO;
+    @Autowired
     private MealDAO mealDAO;
+    @Autowired
     private UserDAO userDAO;
+    @Autowired
     private RoleDAO roleDAO;
 
 
-    @Autowired
+
     public UserMealFoodServiceImpl(FoodDAO foodDAO, MealDAO mealDAO, UserDAO userDAO, RoleDAO roleDAO) {
         this.foodDAO = foodDAO;
         this.mealDAO = mealDAO;
@@ -174,6 +178,17 @@ public class UserMealFoodServiceImpl implements UserMealFoodService {
             role = res.get();
         }
         return role;
+    }
+
+    @Override
+    public Role findRoleByName(String roleName) {
+       List<Role> roles = roleDAO.findAll();
+       for(Role role : roles) {
+           if(role.getName().equals(roleName)) {
+               return role;
+           }
+       }
+       return null;
     }
 
     @Override

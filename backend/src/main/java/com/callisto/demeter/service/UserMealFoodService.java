@@ -49,4 +49,6 @@ public interface UserMealFoodService extends UserDetailsService {
 
     // Find Role(s)
     Role findRoleById(int roleId);
+
+    Role findRoleByName(String roleName);
 }
