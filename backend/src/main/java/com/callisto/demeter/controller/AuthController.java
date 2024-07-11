@@ -3,14 +3,17 @@ package com.callisto.demeter.controller;
 import com.callisto.demeter.entity.AuthRequest;
 import com.callisto.demeter.entity.Role;
 import com.callisto.demeter.entity.User;
+import com.callisto.demeter.response.ErrorResponse;
 import com.callisto.demeter.service.JwtService;
 import com.callisto.demeter.service.UserMealFoodService;
 import org.jose4j.lang.JoseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -76,12 +79,24 @@ public class AuthController {
 
     @PostMapping("/generateToken")
     public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) throws JoseException {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
+        Authentication authentication;
+        try {
+            authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
+        } catch(AuthenticationException e) {
+            throw new UsernameNotFoundException("Invalid username or password. Please try again.");
+        }
         if (authentication.isAuthenticated()) {
             return jwtService.generateJWTToken(authRequest.getUsername());
         } else {
-            throw new UsernameNotFoundException("invalid user request !");
+            throw new UsernameNotFoundException("Invalid username or password. Please try again.");
         }
+    }
+
+
+    @ExceptionHandler(value = Exception.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ErrorResponse handleException(Exception e) {
+        return new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), e.getMessage());
     }
 
 }

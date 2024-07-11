@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { attemptLogin, testPost } from "../../server/authReqs";
+import { navigate } from 'vike/client/router'
 
 export const Login = () => {
     {/* You can open the modal using document.getElementById('ID').showModal() method */ }
@@ -7,13 +8,23 @@ export const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const [loginError, setLoginError] = useState("");
+    const [loginError, setLoginError] = useState<string | null>(null);
 
     const handleLoginClick = async () => {
         //fill login object
-        // const loginRes = await attemptLogin(username, password);
-        const res = await testPost("role_test");
-        console.log(res);
+        setLoginError(null);
+        const loginRes = await attemptLogin(username, password);
+        // const res = await testPost("role_test");
+        if (loginRes.response) {
+            if (loginRes.response.data) {
+                setLoginError(loginRes.response.data.message);
+            } else {
+                setLoginError("Something unexpected happened. Please try again.");
+            }
+        } else {
+            localStorage.setItem('JWT', JSON.stringify(loginRes.data));
+            navigate('/meal');
+        }
     }
 
 
@@ -24,6 +35,9 @@ export const Login = () => {
                 <h3 className="font-bold text-3xl text-primary">Login</h3>
                 <p className="py-4">Welcome back! Please enter your details.</p>
                 <label className="form-control w-full max-w-xs">
+                    {loginError &&
+                        <div className="label-text text-error text-center"> { loginError } </div>
+                    }
                     <div className="label">
                         <span className="label-text font-semibold">Username</span>
                     </div>

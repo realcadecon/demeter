@@ -5,13 +5,20 @@ export const welcomePage = async (): Promise<any> => {
     return data;
 }
 
-export const attemptLogin = async (user: string, pass: string): Promise<any> => {
+export const attemptLogin = async (user: string, pass: string) => {
     const body = {
         username: user,
         password: pass,
     };
-    const res = await authClient.post('generateToken', JSON.stringify(body));
-    console.log(res);
+    const res = await authClient.post('generateToken', body)
+    .then(data => {
+        console.log("Success: " + data);
+        return data;
+    })
+    .catch(error => {
+        console.log("Error: " + error.message);
+        return error;
+    });
     return res;
 }
 

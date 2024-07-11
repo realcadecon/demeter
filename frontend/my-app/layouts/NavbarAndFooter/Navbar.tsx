@@ -1,14 +1,12 @@
-import React from "react";
-
 import { useState, useEffect } from "react";
 import { DropDownIcon } from "../../assets/DropDownIcon";
 import { MainLogo } from "../../assets/MainLogo";
 import { ThemeSelector } from "../../components/ThemeSelector";
 import { LoginModal } from "../Utils/LoginModal";
 
-export const Navbar = () => {
+export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean }) => {
 
-    const [isDark, setIsDark] = useState(null);
+    const [isDark, setIsDark] = useState(undefined);
 
     useEffect(() => {
         const savedTheme = JSON.parse(localStorage.getItem('isDark')!);
@@ -22,17 +20,15 @@ export const Navbar = () => {
         }
     }, [isDark]);
 
-    let [showLogin, setShowLogin] = useState(false);
-
-
     return (
         <div className="navbar bg-base-100 mb-6">
             <div className="navbar-start">
-                <a className="btn btn-ghost text-xl text-primary">
+                <a href="/" className="btn btn-ghost text-xl text-primary">
                     <MainLogo />
                     Project Demeter
                 </a>
             </div>
+            <LoginModal />
             {/* Desktop */}
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -51,14 +47,24 @@ export const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <span className="hidden lg:flex mr-1">
-                    <ThemeSelector themeAlt="dracula" bDark={isDark} setTheme={setIsDark}/>
+                    <ThemeSelector themeAlt="dracula" bDark={isDark == undefined ? undefined : isDark} setTheme={setIsDark} />
                 </span>
-                <a className="btn btn-ghost mr-1 hover:underline hidden lg:flex" 
-                    onClick={() => document.getElementById('my_modal_3').showModal()}>
-                    Login
-                </a>
-                <LoginModal />
-                <a className="btn btn-primary hidden lg:flex" href="register">Sign Up</a>
+                {props.showLogin &&
+                    <a className="btn btn-ghost mr-1 hover:underline hidden lg:flex"
+                        onClick={() => {
+                            const modal = document.getElementById('my_modal_3') as HTMLDialogElement;
+                            if (modal) {
+                                modal.showModal();
+                            }
+                        }}>
+                        Login
+                    </a>
+                }
+                {props.showSignUp &&
+                    <a className={`btn btn-primary hidden lg:flex ${!props.showLogin ? 'ml-2' : ''}`} href="register">
+                        Sign Up
+                    </a>
+                }
                 {/* Mobile */}
                 <div className="dropdown dropdown-left dropdown-hover">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,7 +72,7 @@ export const Navbar = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
-                            <a>Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li>
                             <a>About</a>
@@ -86,21 +92,29 @@ export const Navbar = () => {
                                 </ul>
                             </details>
                         </li>
+                        {props.showLogin &&
+                            <li>
+                                <a className="btn btn-ghost mt-2 mb-2 hover:underline" onClick={() => {
+                                    const modal = document.getElementById('my_modal_3') as HTMLDialogElement;
+                                    if (modal) {
+                                        modal.showModal();
+                                    }
+                                }}>
+                                    Login
+                                </a>
+                            </li>
+                        }
+                        {props.showSignUp &&
+                            <li>
+                                <a className={`btn btn-primary mb-2 ${!props.showLogin ? 'mt-2' : ''}`} href="register">Sign Up</a>
+                            </li>
+                        }
                         <li>
-                            <a className="btn btn-ghost mt-2 mb-2 hover:underline" onClick={() => setShowLogin(!showLogin)}>Login</a>
-                            {showLogin &&
-                                <LoginModal />
-                            }
-                        </li>
-                        <li>
-                            <a className="btn btn-primary mb-2" href="register">Sign Up</a>
-                        </li>
-                        <li className="">
-                            <ThemeSelector themeAlt="dracula" bDark={isDark} setTheme={setIsDark}/>
+                            <ThemeSelector themeAlt="dracula" bDark={isDark == undefined ? undefined : isDark} setTheme={setIsDark} />
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
