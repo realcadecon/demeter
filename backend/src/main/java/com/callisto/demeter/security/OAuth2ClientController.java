@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class OAuth2ClientController {
 
-    @Autowired
-    private ClientRegistrationRepository clientRegistrationRepository;
+//    @Autowired
+//    private ClientRegistrationRepository clientRegistrationRepository;
 
 
 //    @RequestMapping("/oauth2")

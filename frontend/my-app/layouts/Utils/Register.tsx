@@ -28,13 +28,13 @@ export const Register = () => {
                     <div className="label">
                         <span className="label-text font-semibold">Email</span>
                     </div>
-                    <input type="password" placeholder="email@something.com" className="input bold input-bordered w-full max-w-xs" />
-                    <button className="btn mt-4 font-extrabold">Login</button>
+                    <input type="text" placeholder="email@something.com" className="input bold input-bordered w-full max-w-xs" />
+                    <button className="btn mt-4 font-extrabold">Create an account</button>
                 </label>
                 <div className="label">
                     <span className="label-text font-semibold">
                         Already have an account?
-                        <a href="/login" className="btn btn-link -ml-2">Sign Up</a>
+                        <a href="/login" className="btn btn-link -ml-2">Login</a>
                     </span>
                 </div>
             </div>

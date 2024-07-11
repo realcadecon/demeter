@@ -39,6 +39,12 @@ public class AuthController {
         return "Welcome this endpoint is not secure";
     }
 
+    @PostMapping("/test")
+    public String testPost(@RequestBody Role role) {
+        System.out.println("Role = " + role.getName());
+        return "got post request";
+    }
+
     @PostMapping("/addNewUser")
     public String addNewUser(@RequestBody User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));

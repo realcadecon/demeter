@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getPosts, createPost, welcomePage } from "../../server/getData";
+import { getPosts, createPost } from "../../server/getData";
 import { Navbar } from "../../layouts/NavbarAndFooter/Navbar";
 import { Footer } from "../../layouts/NavbarAndFooter/Footer";
-import { ResponseAPI, UserDemeter } from "../../server/client";
+import { ResponseAPI } from "../../server/client";
+import { welcomePage } from "../../server/authReqs";
 
 export default function Page() {
 
