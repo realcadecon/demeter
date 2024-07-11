@@ -7,7 +7,7 @@ import { Register } from "../../layouts/Utils/Register";
 export default function Page() {
   return (
     <div className="max-w-full flex flex-col justify-between h-screen">
-      <Navbar />
+      <Navbar showLogin={true} showSignUp={false}/>
       <div>
         <Register />
       </div>

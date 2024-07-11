@@ -103,7 +103,7 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean }) => 
                                     Login
                                 </a>
                             </li>
-                        }
+                        } 
                         {props.showSignUp &&
                             <li>
                                 <a className={`btn btn-primary mb-2 ${!props.showLogin ? 'mt-2' : ''}`} href="register">Sign Up</a>

@@ -6,7 +6,7 @@ import { Footer } from "../../layouts/NavbarAndFooter/Footer";
 export default function Page() {
   return (
     <div className="max-w-full flex flex-col justify-between h-screen">
-      <Navbar />
+      <Navbar showLogin={true} showSignUp={true}/>
       <HomePage />
       <Footer />
     </div>

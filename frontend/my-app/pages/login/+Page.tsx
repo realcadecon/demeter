@@ -6,7 +6,7 @@ import { Login } from "../../layouts/Utils/Login";
 export default function Page() {
   return (
     <div className="max-w-full flex flex-col justify-between h-screen">
-      <Navbar />
+      <Navbar showLogin={false} showSignUp={true}/>
       <Login />
       <Footer />
     </div>

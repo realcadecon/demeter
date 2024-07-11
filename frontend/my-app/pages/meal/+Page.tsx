@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getPosts, createPost } from "../../server/getData";
 import { Navbar } from "../../layouts/NavbarAndFooter/Navbar";
 import { Footer } from "../../layouts/NavbarAndFooter/Footer";
@@ -26,7 +26,7 @@ export default function Page() {
 
   return (
     <div className="max-w-full flex flex-col justify-between h-screen">
-      <Navbar />
+      <Navbar showLogin={true} showSignUp={true}/>
       <div className="mx-10">
 
         <h1>Create Post 👇</h1>
