@@ -58,7 +58,7 @@ export const Navbar = () => {
                     Login
                 </a>
                 <LoginModal />
-                <a className="btn btn-primary hidden lg:flex">Sign Up</a>
+                <a className="btn btn-primary hidden lg:flex" href="register">Sign Up</a>
                 {/* Mobile */}
                 <div className="dropdown dropdown-left dropdown-hover">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -93,10 +93,10 @@ export const Navbar = () => {
                             }
                         </li>
                         <li>
-                            <a className="btn btn-primary mb-2">Sign Up</a>
+                            <a className="btn btn-primary mb-2" href="register">Sign Up</a>
                         </li>
                         <li className="">
-                            <ThemeSelector themeAlt="dracula" />
+                            <ThemeSelector themeAlt="dracula" bDark={isDark} setTheme={setIsDark}/>
                         </li>
                     </ul>
                 </div>
