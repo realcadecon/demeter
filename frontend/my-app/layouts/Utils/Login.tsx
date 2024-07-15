@@ -11,7 +11,7 @@ export const Login = () => {
     const [loginError, setLoginError] = useState<string | null>(null);
 
     const handleLoginClick = async () => {
-        //fill login object
+        //fill login object 
         setLoginError(null);
         const loginRes = await attemptLogin(username, password);
         // const res = await testPost("role_test");
@@ -22,7 +22,11 @@ export const Login = () => {
                 setLoginError("Something unexpected happened. Please try again.");
             }
         } else {
+            const user = {
+                username: username,
+            }
             localStorage.setItem('JWT', JSON.stringify(loginRes.data));
+            localStorage.setItem('User', JSON.stringify(user));
             navigate('/meal');
         }
     }

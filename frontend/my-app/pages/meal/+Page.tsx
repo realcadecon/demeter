@@ -11,10 +11,19 @@ export default function Page() {
 
   const [demeterData, setDemeterData] = useState<any>();
 
-  useEffect(() => {
-   
-    getPosts().then(data => setPosts(data));
+  const [bShowLogin, setbShowLogin] = useState(true);
+  const [bShowSignUp, setbShowSignUp] = useState(true);
+  const [bShowUser, setbShowUser] = useState(false);
 
+  useEffect(() => {
+
+    if(localStorage.getItem("User")) {
+      setbShowLogin(false);
+      setbShowSignUp(false);
+      setbShowUser(true);
+    }
+
+    getPosts().then(data => setPosts(data));
     welcomePage().then(data => setDemeterData(data));
 
   }, [])
@@ -26,7 +35,7 @@ export default function Page() {
 
   return (
     <div className="max-w-full flex flex-col justify-between h-screen">
-      <Navbar showLogin={true} showSignUp={true}/>
+      <Navbar showLogin={bShowLogin} showSignUp={bShowSignUp} showUser={bShowUser}/>
       <div className="mx-10">
 
         <h1>Create Post 👇</h1>
