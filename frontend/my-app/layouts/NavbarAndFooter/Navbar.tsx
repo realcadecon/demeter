@@ -62,34 +62,30 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
                 <span className="hidden lg:flex mr-1">
                     <ThemeSelector themeAlt="dracula" bDark={isDark == undefined ? undefined : isDark} setTheme={setIsDark} />
                 </span>
-                {!loadingButtons && 
-                <div>
-                    {props.showLogin &&
-                        <a className="btn btn-ghost mr-1 hover:underline hidden lg:flex"
-                            onClick={() => {
-                                const modal = document.getElementById('my_modal_3') as HTMLDialogElement;
-                                if (modal) {
-                                    modal.showModal();
-                                }
-                            }}>
-                            Login
-                        </a>
-                    }
-                    {props.showSignUp &&
-                        <a className={`btn btn-primary hidden lg:flex ${!props.showLogin ? 'ml-2' : ''}`} href="register">
-                            Sign Up
-                        </a>
-                    }
-                    {props.showUser &&
-                        <a className={`hidden lg:flex ml-2`} href="meal">
-                            <div className="avatar placeholder">
-                                <div className="bg-neutral text-neutral-content w-10 rounded-full">
-                                    <span>{username != "" ? username[0].toUpperCase() : "X"}</span>
-                                </div>
+                {props.showLogin &&
+                    <a className="btn btn-ghost mr-1 hover:underline hidden lg:flex"
+                        onClick={() => {
+                            const modal = document.getElementById('my_modal_3') as HTMLDialogElement;
+                            if (modal) {
+                                modal.showModal();
+                            }
+                        }}>
+                        Login
+                    </a>
+                }
+                {props.showSignUp &&
+                    <a className={`btn btn-primary hidden lg:flex ${!props.showLogin ? 'ml-2' : ''}`} href="register">
+                        Sign Up
+                    </a>
+                }
+                {props.showUser &&
+                    <a className={`hidden lg:flex ml-2`} href="meal">
+                        <div className="avatar placeholder">
+                            <div className="bg-neutral text-neutral-content w-10 rounded-full">
+                                <span>{username != "" ? username[0].toUpperCase() : "X"}</span>
                             </div>
-                        </a>
-                    }
-                </div>
+                        </div>
+                    </a>
                 }
                 {/* Mobile */}
                 <div className="dropdown dropdown-left dropdown-hover">
