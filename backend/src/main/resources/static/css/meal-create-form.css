@@ -1,0 +1,315 @@
+:root {
+    --white: #FFFFFF;
+    --orange-1: #ffe8cc;
+    --orange-7: #f76707;
+    --grey-6: #868e96;
+    --grey-9: #212529;
+    font-family: roboto;
+    background-color: var(--grey-2);
+    min-width: 320px;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.form-bg {
+    display: grid;
+    margin: 0;
+}
+
+.form-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 15px auto auto auto auto auto;
+    row-gap: 20px;
+}
+
+.top-banner {
+    grid-column: 1/3;
+    grid-row: 1;
+    background-color: var(--orange-7);
+}
+
+
+.entry-container input {
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    background-color: var(--white);
+    border: 1px solid var(--orange-7);
+    box-shadow: 2px 2px 1px 0px var(--grey-6);
+}
+
+.title-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    grid-row: 2;
+    grid-column: 1/3;   
+}
+
+.main-title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    text-decoration: none;
+    text-transform: none;
+    color: var(--orange-7);
+    padding-left: 30px;
+}
+
+.close-btn {
+    font-size: 12px;
+    line-height: 2.4;
+    padding: 0 9px;
+    border-radius: 5px;
+    border: 1px solid var(--orange-7);
+    text-decoration: none;
+    color: var(--orange-7);
+    transition: all .2s ease-in-out;
+    margin-right: 30px;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.entry-container {
+    grid-column: 1/3;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 30px;
+}
+
+
+.entry-box::placeholder {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--grey-6);
+    line-height: 1.2;
+}
+
+.entry-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--orange-7  );
+    line-height: 1.2;
+    letter-spacing: 0.01px;
+    text-decoration: none;
+    text-transform: none;
+}
+
+#meal-name {
+    grid-column: 1/3;
+    grid-row: 3;
+}
+
+
+#cal-goal {
+    grid-row: 4;
+    grid-column: 1;
+}
+
+#protein-goal {
+    grid-row: 4;
+    grid-column: 2;
+}
+
+#carbs-goal {
+    grid-row: 5;
+    grid-column: 1;
+}
+
+#fat-goal {
+    grid-row: 5;
+    grid-column: 2;
+}
+
+.instructions-container {
+    grid-row: 6;
+    grid-column: 1/3;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sub-text {
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.create-btn {
+    grid-row: 7;
+    grid-column: 1/3;
+    width: 131px;
+    height: 43px;
+    color: var(--white);
+    background-color: var(--orange-7);
+    justify-self: center;
+    border-radius: 10px;
+    border: var(--orange-7);
+    box-shadow: 2px 2px 1px 0px rgba(134, 142, 150, 1);
+    transition: all .2s ease-in-out;
+}
+
+.create-btn:hover {
+    transform: scale(1.1);
+}
+
+
+@media only screen and (min-width: 670px) {
+    body {
+        background-color: var(--orange-1);
+    }
+
+    .form-bg {
+        background-color: var(--orange-1);
+        grid-template-columns: 10% 80% 10%;
+        grid-template-rows: 2fr 10fr 2fr;
+        width: 100vw;
+    }
+
+    .form-container {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: var(--white);
+        border-radius: 20px;
+        grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+        grid-template-rows: 20px auto auto auto auto auto;
+    }
+
+    .close-btn {
+    /* fix button newline */
+        max-height: 30px;
+        max-width: 30px;
+    }
+
+    .top-banner {
+        grid-row: 1;
+        grid-column: 1/6;
+        border-radius: 20px 20px 0px 0px;
+        
+    }
+
+    .title-container {
+        margin-top: 30px;
+        grid-row: 2;
+        grid-column: 2/5;
+    }
+
+    #meal-name {
+        grid-row: 3;
+        grid-column: 2/4;
+    }
+
+    #cal-goal {
+        grid-row: 3;
+        grid-column: 4;
+    }
+
+    #protein-goal {
+        grid-row: 4;
+        grid-column: 2;
+    }
+
+    #carbs-goal {
+        grid-row: 4;
+        grid-column: 3;
+    }
+
+    #fat-goal {
+        grid-row: 4;
+        grid-column: 4;
+    }
+
+    .instructions-container {
+        grid-row: 5;
+        grid-column: 2/5;
+    }
+
+    .create-btn {
+        grid-row: 6;
+        grid-column: 2/5;
+        width: 70%;
+    }
+
+    .create-btn {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .form-container {
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: 80px 2fr 2fr 2fr;
+    }
+
+    .top-banner {
+        grid-row: 1/8;
+        grid-column: 1;
+        border-radius: 20px 0px 0px 20px;
+    }
+
+    .entry-container-small {
+        max-width: 120px;
+    }
+
+    .title-container {
+        grid-row: 1;
+        grid-column: 2/5;
+    }
+
+    .close-btn {
+    /* fix button newline */
+        max-height: 30px;
+        max-width: 30px;
+    }
+
+    #meal-name {
+        grid-row: 2;
+        grid-column: 2/4;
+    }
+
+    #cal-goal {
+        grid-row: 2;
+        grid-column: 4;
+    }
+
+    #protein-goal {
+        grid-row: 3;
+        grid-column: 2;
+    }
+
+    #carbs-goal {
+        grid-row: 3;
+        grid-column: 3;
+    }
+
+    #fat-goal {
+        grid-row: 3;
+        grid-column: 4;
+    }
+
+    .instructions-container {
+        grid-row: 4;
+        grid-column: 2/5;
+        padding-right: 40px;
+    }
+    
+    .create-btn {
+        grid-row: 5;
+        grid-column: 2/5;
+    }
+}
