@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba5dc708-e027-4099-a85c-501900ef38be" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/layouts/NavbarAndFooter/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/layouts/NavbarAndFooter/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/pages/login/+Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/pages/login/+Page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/pages/register/+Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/pages/register/+Page.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="ba5dc708-e027-4099-a85c-501900ef38be" name="Changes" comment="fix navbar stacking due to extra div" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fix-footer" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +34,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "fix-navbar-stacking",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/cadec/Documents/demeter"
   }
@@ -66,6 +60,15 @@
       <option name="presentableId" value="Default" />
       <updated>1711664281174</updated>
     </task>
+    <task id="LOCAL-00001" summary="fix navbar stacking due to extra div">
+      <option name="closed" value="true" />
+      <created>1722568724657</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722568724657</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -78,5 +81,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix navbar stacking due to extra div" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix navbar stacking due to extra div" />
   </component>
 </project>
