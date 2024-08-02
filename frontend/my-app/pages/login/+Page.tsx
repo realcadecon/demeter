@@ -5,7 +5,7 @@ import { Login } from "../../layouts/Utils/Login";
 
 export default function Page() {
 
-  const [bShowLogin, setbShowLogin] = useState(true);
+  const [bShowLogin, setbShowLogin] = useState(false);
   const [bShowSignUp, setbShowSignUp] = useState(true);
   const [bShowUser, setbShowUser] = useState(false);
 

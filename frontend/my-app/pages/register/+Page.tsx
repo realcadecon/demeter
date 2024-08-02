@@ -6,7 +6,7 @@ import { Register } from "../../layouts/Utils/Register";
 export default function Page() {
 
   const [bShowLogin, setbShowLogin] = useState(true);
-  const [bShowSignUp, setbShowSignUp] = useState(true);
+  const [bShowSignUp, setbShowSignUp] = useState(false);
   const [bShowUser, setbShowUser] = useState(false);
 
   useEffect(() => {
