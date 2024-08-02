@@ -19,9 +19,11 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="max-w-full flex flex-col justify-between h-screen">
+    <div className="max-w-full flex flex-col justify-between">
       <Navbar showLogin={bShowLogin} showSignUp={bShowSignUp} showUser={bShowUser}/>
-      <HomePage />
+      <div className="min-h-screen">
+        <HomePage/>
+      </div>
       <Footer />
     </div>
   );

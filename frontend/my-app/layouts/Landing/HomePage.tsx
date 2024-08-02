@@ -3,7 +3,7 @@ import { LandingPageMainPicture } from "../../assets/LandingPageMainPicture";
 export const HomePage = () => {
     return (
         <div className="grid grid-cols-1 gap-y-6 gap-x-6 md:grid-cols-2 justify-items-center text-center lg:text-end">
-            <h1 className="max-w-80 leading-snug col-span-1 text-5xl font-bold md:justify-self-end md:self-center lg:self-start">
+            <h1 className="max-w-80 leading-snug col-span-1 text-5xl font-bold md:justify-self-end md:self-center lg:self-end">
                 Plan Meals. Track Cals.
                 <span className="text-primary"> Crush Goals.</span>
             </h1>
