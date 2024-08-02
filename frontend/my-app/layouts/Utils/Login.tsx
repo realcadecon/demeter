@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { attemptLogin, testPost } from "../../server/authReqs";
+// import { attemptLogin, testPost } from "../../server/authReqs";
 import { navigate } from 'vike/client/router'
 
 export const Login = () => {
@@ -12,23 +12,23 @@ export const Login = () => {
 
     const handleLoginClick = async () => {
         //fill login object 
-        setLoginError(null);
-        const loginRes = await attemptLogin(username, password);
-        // const res = await testPost("role_test");
-        if (loginRes.response) {
-            if (loginRes.response.data) {
-                setLoginError(loginRes.response.data.message);
-            } else {
-                setLoginError("Something unexpected happened. Please try again.");
-            }
-        } else {
-            const user = {
-                username: username,
-            }
-            localStorage.setItem('JWT', JSON.stringify(loginRes.data));
-            localStorage.setItem('User', JSON.stringify(user));
-            navigate('/meal');
-        }
+        // setLoginError(null);
+        // const loginRes = await attemptLogin(username, password);
+        // // const res = await testPost("role_test");
+        // if (loginRes.response) {
+        //     if (loginRes.response.data) {
+        //         setLoginError(loginRes.response.data.message);
+        //     } else {
+        //         setLoginError("Something unexpected happened. Please try again.");
+        //     }
+        // } else {
+        //     const user = {
+        //         username: username,
+        //     }
+        //     localStorage.setItem('JWT', JSON.stringify(loginRes.data));
+        //     localStorage.setItem('User', JSON.stringify(user));
+        //     navigate('/meal');
+        // }
     }
 
 
