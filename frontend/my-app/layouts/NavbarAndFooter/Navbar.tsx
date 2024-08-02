@@ -16,7 +16,6 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
     useEffect(() => {
         const savedTheme = JSON.parse(localStorage.getItem('isDark')!);
         setIsDark(savedTheme ? savedTheme : false);
-
     }, []);
 
     useEffect(() => {
@@ -26,11 +25,12 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
     }, [isDark]);
 
     useEffect(() => {
-        if(props.showUser)  {
-            const user = JSON.parse(localStorage.getItem("User")); 
-            setUsername(user.username);
-        }
+        // if(props.showUser)  {
+        //     const user = JSON.parse(localStorage.getItem("User")); 
+        //     setUsername(user.username);
+        // }
         setLoadingButtons(false);
+        console.log(props);
     }, [props.showUser])
 
     return (
@@ -62,8 +62,6 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
                 <span className="hidden lg:flex mr-1">
                     <ThemeSelector themeAlt="dracula" bDark={isDark == undefined ? undefined : isDark} setTheme={setIsDark} />
                 </span>
-                {!loadingButtons && 
-                <div>
                     {props.showLogin &&
                         <a className="btn btn-ghost mr-1 hover:underline hidden lg:flex"
                             onClick={() => {
@@ -89,8 +87,7 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
                             </div>
                         </a>
                     }
-                </div>
-                }
+                
                 {/* Mobile */}
                 <div className="dropdown dropdown-left dropdown-hover">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
