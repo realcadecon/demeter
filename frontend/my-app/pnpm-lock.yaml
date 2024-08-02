@@ -17,6 +17,9 @@ importers:
       cross-fetch:
         specifier: ^4.0.0
         version: 4.0.0
+      my-app:
+        specifier: 'file:'
+        version: file:(react-streaming@0.3.41(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(vite@5.3.3(@types/node@20.14.10))
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1575,6 +1578,9 @@ packages:
 
   ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
+
+  'my-app@file:':
+    resolution: {directory: '', type: directory}
 
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
@@ -3644,6 +3650,25 @@ snapshots:
   ms@2.1.1: {}
 
   ms@2.1.2: {}
+
+  my-app@file:(react-streaming@0.3.41(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(vite@5.3.3(@types/node@20.14.10)):
+    dependencies:
+      '@vitejs/plugin-react': 4.3.1(vite@5.3.3(@types/node@20.14.10))
+      axios: 1.7.2
+      cross-fetch: 4.0.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      vercel: 34.4.0
+      vike: 0.4.179(react-streaming@0.3.41(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(vite@5.3.3(@types/node@20.14.10))
+      vike-react: 0.4.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vike@0.4.179(react-streaming@0.3.41(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(vite@5.3.3(@types/node@20.14.10)))(vite@5.3.3(@types/node@20.14.10))
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - debug
+      - encoding
+      - react-streaming
+      - supports-color
+      - vite
 
   mz@2.7.0:
     dependencies:
