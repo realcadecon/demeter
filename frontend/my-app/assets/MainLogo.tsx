@@ -1,7 +1,7 @@
 
-export const MainLogo = () => {
+export const MainLogo = (props: {fillClass?: string, width?: number}) => {
     return (
-        <svg viewBox="0 0 24 24" width={30} className="fill-primary">
+        <svg viewBox="0 0 24 24" width={props.width == undefined ? 30 : props.width} className={props.fillClass}>
             <g>
                 <path fill="none" d="M0 0H24V24H0z" />
                 <path

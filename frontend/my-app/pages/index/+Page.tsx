@@ -21,7 +21,7 @@ export default function Page() {
   return (
     <div className="max-w-full flex flex-col justify-between">
       <Navbar showLogin={bShowLogin} showSignUp={bShowSignUp} showUser={bShowUser}/>
-      <div className="min-h-screen">
+      <div className="min-h-[75vh] flex flex-col justify-center">
         <HomePage/>
       </div>
       <Footer />

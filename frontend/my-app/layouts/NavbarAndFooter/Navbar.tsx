@@ -37,7 +37,7 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
         <div className="navbar bg-base-100 mb-6">
             <div className="navbar-start">
                 <a href="/" className="btn btn-ghost text-xl text-primary">
-                    <MainLogo />
+                    <MainLogo fillClass="fill-primary"/>
                     Project Demeter
                 </a>
             </div>
@@ -47,7 +47,7 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
                 <ul className="menu menu-horizontal px-1">
                     <li><a href="/">Home</a></li>
                     <li><a>About</a></li>
-                    <li>
+                    <li> 
                         <details>
                             <summary>Helpful Tools</summary>
                             <ul className="p-2">
