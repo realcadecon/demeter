@@ -1,3 +1,5 @@
+"use server"
+
 import axios from 'axios';
 
 export const client = axios.create({
@@ -5,14 +7,14 @@ export const client = axios.create({
 });
 
 export const authClient = axios.create({
-    baseURL: "http://localhost:8080/auth/",
+    baseURL: `${import.meta.env.SERVER_URL}/auth/`,
     headers: {
         'Content-Type': 'application/json'
     }
 });
 
 export default axios.create({
-    baseURL: "http://localhost:8080/auth/",
+    baseURL: `${import.meta.env.SERVER_URL}/auth/`,
     headers: {
         'Content-Type': 'application/json'
     }
