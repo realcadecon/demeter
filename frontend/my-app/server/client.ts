@@ -7,14 +7,14 @@ export const client = axios.create({
 });
 
 export const authClient = axios.create({
-    baseURL: `${import.meta.env.SERVER_URL}/auth/`,
+    baseURL: `${import.meta.env.PUBLIC_ENV__SERVER_URL}/auth/`,
     headers: {
         'Content-Type': 'application/json'
     }
 });
 
 export default axios.create({
-    baseURL: `${import.meta.env.SERVER_URL}/auth/`,
+    baseURL: `${import.meta.env.PUBLIC_ENV__SERVER_URL}/auth/`,
     headers: {
         'Content-Type': 'application/json'
     }
