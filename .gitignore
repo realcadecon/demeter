@@ -35,3 +35,6 @@ build/
 
 ### Scripts ###
 /scripts/create-user.sql
+
+.p12
+.pem

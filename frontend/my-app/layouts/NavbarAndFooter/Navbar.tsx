@@ -3,6 +3,7 @@ import { DropDownIcon } from "../../assets/DropDownIcon";
 import { MainLogo } from "../../assets/MainLogo";
 import { ThemeSelector } from "../../components/ThemeSelector";
 import { LoginModal } from "../Utils/LoginModal";
+import { navigate } from "vike/client/router";
 
 
 
@@ -10,7 +11,9 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
 
     const [isDark, setIsDark] = useState(undefined);
     const [username, setUsername] = useState("");
-    const [loadingButtons, setLoadingButtons] = useState(true);
+    const [loginStatus, setLoginStatus] = useState(props.showLogin);
+    const [signupStatus, setSignupStatus] = useState(props.showSignUp);
+    const [userStatus, setUserStatus] = useState(props.showUser);
 
 
     useEffect(() => {
@@ -26,28 +29,42 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
     }, [isDark]);
 
     useEffect(() => {
-        if(props.showUser)  {
-            const user = JSON.parse(localStorage.getItem("User")); 
+        const userValue = localStorage.getItem("User")
+        if (userValue != null) {
+            const user = JSON.parse(userValue);
             setUsername(user.username);
+            setUserStatus(true);
+            setLoginStatus(false);
+            setSignupStatus(false);
         }
-        setLoadingButtons(false);
-    }, [props.showUser])
+    }, [userStatus])
+
+    const handleSignOut = () => {
+        console.log("signing out");
+        localStorage.removeItem("User");
+        localStorage.removeItem("JWT");
+        setUserStatus(false);
+        setLoginStatus(true);
+        setSignupStatus(true);
+        setUsername("");
+        navigate("/");
+    }
 
     return (
         <div className="navbar bg-base-100 mb-6">
             <div className="navbar-start">
                 <a href="/" className="btn btn-ghost text-xl text-primary">
-                    <MainLogo fillClass="fill-primary"/>
+                    <MainLogo fillClass="fill-primary" />
                     Project Demeter
                 </a>
             </div>
-            <LoginModal />
+            {/* <LoginModal /> */}
             {/* Desktop */}
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><a href="/">Home</a></li>
                     <li><a>About</a></li>
-                    <li> 
+                    <li>
                         <details>
                             <summary>Helpful Tools</summary>
                             <ul className="p-2">
@@ -62,37 +79,51 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
                 <span className="hidden lg:flex mr-1">
                     <ThemeSelector themeAlt="dracula" bDark={isDark == undefined ? undefined : isDark} setTheme={setIsDark} />
                 </span>
-                {props.showLogin &&
+                {loginStatus &&
                     <a className="btn btn-ghost mr-1 hover:underline hidden lg:flex"
-                        onClick={() => {
-                            const modal = document.getElementById('my_modal_3') as HTMLDialogElement;
-                            if (modal) {
-                                modal.showModal();
-                            }
-                        }}>
+                        // onClick={() => {
+                        //     const modal = document.getElementById('my_modal_3') as HTMLDialogElement;
+                        //     if (modal) {
+                        //         modal.showModal();
+                        //     }
+                        // }}
+                        href="/login">
                         Login
                     </a>
                 }
-                {props.showSignUp &&
-                    <a className={`btn btn-primary hidden lg:flex ${!props.showLogin ? 'ml-2' : ''}`} href="register">
+                {signupStatus &&
+                    <a className={`btn btn-primary hidden lg:flex ${!loginStatus ? 'ml-2' : ''}`} href="/register">
                         Sign Up
                     </a>
                 }
-                {props.showUser &&
-                    <a className={`hidden lg:flex ml-2`} href="meal">
-                        <div className="avatar placeholder">
-                            <div className="bg-neutral text-neutral-content w-10 rounded-full">
-                                <span>{username != "" ? username[0].toUpperCase() : "X"}</span>
+                {userStatus &&
+                    <div className="hidden lg:dropdown dropdown-bottom dropdown-end dropdown-hover">
+                        <div tabIndex={0} className="avatar placeholder btn btn-ghost" role="button">
+                            <div className="btn btn-sm btn-circle btn-outline pr-[0.1rem]">
+                                {username != "" ? username[0].toUpperCase() : "X"}
                             </div>
                         </div>
-                    </a>
+                        <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow-xl bg-base-100 rounded-box w-32">
+                            <li className="p-1">
+                                <a className="btn btn-primary btn-sm" href="/meal">
+                                    Meals
+                                </a>
+                            </li>
+                            <li className="p-1">
+                                <div onClick={handleSignOut} className="btn btn-sm btn-outline btn-primary">Sign Out</div>
+                            </li>
+                        </ul>
+                    </div>
                 }
+
+
+
                 {/* Mobile */}
                 <div className="dropdown dropdown-left dropdown-hover">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <DropDownIcon />
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-2 z-[1] p-2 shadow drop-shadow-lg bg-base-100 rounded-box w-52">
                         <li>
                             <a href="/">Home</a>
                         </li>
@@ -114,21 +145,35 @@ export const Navbar = (props: { showLogin?: boolean, showSignUp?: boolean, showU
                                 </ul>
                             </details>
                         </li>
-                        {props.showLogin &&
+                        {loginStatus &&
                             <li>
-                                <a className="btn btn-ghost mt-2 mb-2 hover:underline" onClick={() => {
-                                    const modal = document.getElementById('my_modal_3') as HTMLDialogElement;
-                                    if (modal) {
-                                        modal.showModal();
-                                    }
-                                }}>
+                                <a className="btn btn-ghost mt-2 mb-2 hover:underline" href="/login"
+                                // onClick={() => {
+                                //     const modal = document.getElementById('my_modal_3') as HTMLDialogElement;
+                                //     if (modal) {
+                                //         modal.showModal();
+                                //     }
+                                // }}
+                                >
                                     Login
                                 </a>
                             </li>
-                        } 
-                        {props.showSignUp &&
+                        }
+                        {signupStatus &&
                             <li>
-                                <a className={`btn btn-primary mb-2 ${!props.showLogin ? 'mt-2' : ''}`} href="register">Sign Up</a>
+                                <a className={`btn btn-primary mb-2 ${!loginStatus ? 'mt-2' : ''}`} href="/register">Sign Up</a>
+                            </li>
+                        }
+                        {userStatus &&
+                            <li className="p-1">
+                                <a className="btn btn-primary btn-sm" href="/meal">
+                                    Meals
+                                </a>
+                            </li>
+                        }
+                        {userStatus && 
+                            <li className="p-1">
+                                <div onClick={handleSignOut} className="btn btn-sm btn-outline btn-primary">Sign Out</div>
                             </li>
                         }
                         <li>

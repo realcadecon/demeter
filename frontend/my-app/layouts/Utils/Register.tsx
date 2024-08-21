@@ -29,7 +29,7 @@ export const Register = () => {
                         <span className="label-text font-semibold">Email</span>
                     </div>
                     <input type="text" placeholder="email@something.com" className="input bold input-bordered w-full max-w-xs" />
-                    <button className="btn mt-4 font-extrabold">Create an account</button>
+                    <button className="btn btn-primary mt-4 font-extrabold">Create an account</button>
                 </label>
                 <div className="label">
                     <span className="label-text font-semibold">

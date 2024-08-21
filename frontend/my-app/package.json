@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "demeter",
   "version": "0.0.1",
   "description": "",
   "type": "module",
@@ -24,9 +24,11 @@
   },
   "dependencies": {
     "@vercel/node": "^3.2.3",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "@vitejs/plugin-react": "^4.2.1",
     "axios": "^1.7.2",
     "cross-fetch": "^4.0.0",
+    "demeter": "file:",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vercel": "^34.4.0",

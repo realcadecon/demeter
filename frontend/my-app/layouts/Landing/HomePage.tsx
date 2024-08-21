@@ -11,7 +11,7 @@ export const HomePage = () => {
                 Demeter is your personal nutrition assistant designed to make healthy eating easy, accessible,
                 and sustainable so that you can spend more time doing the things you love.
             </p>
-            <a className="btn btn-lg btn-wide btn-primary md:col-span-2 md:row-start-3 lg:justify-self-end lg:col-start-1 lg:col-end-1">Get Started</a>
+            <a href="/register" className="btn btn-lg btn-wide btn-primary md:col-span-2 md:row-start-3 lg:justify-self-end lg:col-start-1 lg:col-end-1">Get Started</a>
             <div className="col-span-1 md:col-start-2 md:col-end-3 md:row-start-1 md:justify-self-start md:self-center lg:row-start-1 lg:row-end-4">
                 <LandingPageMainPicture />
             </div>

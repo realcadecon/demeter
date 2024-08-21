@@ -50,7 +50,7 @@ export const Login = () => {
                         <span className="label-text font-semibold">Password</span>
                     </div>
                     <input type="password" placeholder="Password" onChange={event => setPassword(event.target.value)} className="input bold input-bordered w-full max-w-xs" />
-                    <button className="btn mt-4 font-extrabold" onClick={handleLoginClick}>Login</button>
+                    <button className="btn btn-primary mt-4 font-extrabold" onClick={handleLoginClick}>Login</button>
                 </label>
                 <div className="label">
                     <span className="label-text font-semibold">

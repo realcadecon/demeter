@@ -1,2 +1,5 @@
 .vercel
 .env*.local
+
+localhost.conf
+/ssl-localhost/

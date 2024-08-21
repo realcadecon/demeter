@@ -97,7 +97,7 @@ public class SecurityConfig {
 
     private CorsConfigurationSource apiConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000/"));
+        configuration.setAllowedOrigins(Arrays.asList("https://localhost:3000"));
         configuration.setAllowedOriginPatterns(Arrays.asList("https://demeter-*-cades-projects-*.vercel.app"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "OPTIONS", "DELETE"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
